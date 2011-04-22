@@ -4,5 +4,10 @@
 
     $ brew install node
     
+!SLIDE Start up
+    
+    $ node
+
+  
   
   

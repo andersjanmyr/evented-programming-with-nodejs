@@ -1,6 +1,7 @@
-!SLIDE
+!SLIDE center
 
-# Why?
+# Fast
+![Fast](fast.jpg)
 
 !SLIDE
 
