@@ -11,6 +11,7 @@
 !SLIDE 
 # Node
 ## A set of libraries on top of Google V8
+## Focused on doing networking right
 
 !SLIDE 
 
