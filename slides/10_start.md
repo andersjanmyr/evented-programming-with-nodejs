@@ -13,14 +13,14 @@
 !SLIDE
 # Hello World!
 
-    @javascript
+    @@@javascript
     // hello.js
     setTimeout(function() {
         console.log('World');
     }, 2000);
     console.log('Hello');
 
-!SLIDE
+!SLIDE commandline
 # Start Script
 
     $ node hello.js

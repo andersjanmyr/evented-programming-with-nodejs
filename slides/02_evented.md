@@ -22,7 +22,7 @@
 		// Use result
 	});
 
-!SLIDE
+!SLIDE bullets
 
 # Apache
 ## Threads
@@ -30,7 +30,7 @@
 * Stack
 * Context Switching
 
-!SLIDE
+!SLIDE bullets
 
 # Nginx
 ## Evented
