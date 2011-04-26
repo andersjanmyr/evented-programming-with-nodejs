@@ -3,6 +3,7 @@
 
 !SLIDE
 # Nodester command-line small
+    $ nodester npm install express
     $ git push nodester master
     Counting objects: 5, done.
     Delta compression using up to 2 threads.
@@ -19,19 +20,21 @@
     remote: Checking ./.git/hooks/post-receive
     remote: Attempting to restart your app: 1346-7856c14e6a5d92a6b5374ec4772a6da0
     remote: App restarted..
-    remote: 
-    remote: 
+    remote:
+    remote:
     remote:   	\m/ Nodester out \m/
-    remote: 
-    remote: 
+    remote:
+    remote:
     To ec2-user@nodester.com:/node/hosted_apps/andersjanmyr/1346-7856c14e6a5d92a6b5374ec4772a6da0.git
        38f4e6e..8f59169  master -> master
-    
-!SLIDE
-# no.de (Joyent)
 
 !SLIDE
 # Cloud Foundry
+    $ npm install
+    mime@1.2.1 ./node_modules/express/node_modules/mime
+    connect@1.4.0 ./node_modules/express/node_modules/connect
+    qs@0.1.0 ./node_modules/express/node_modules/qs
+    express@2.3.0 ./node_modules/express
 
     $ vmc push
     Would you like to deploy from the current directory? [Yn]: Y
@@ -47,7 +50,10 @@
       Uploading (1K): OK
     Push Status: OK
     Staging Application: OK
-    Starting Application: ........
+    Starting Application: ........OK
+
+!SLIDE
+# no.de (Joyent)
 
 
 

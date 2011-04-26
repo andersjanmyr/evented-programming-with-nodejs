@@ -1,7 +1,7 @@
 !SLIDE center
 
-# Fast
-![Fast](fast.jpg)
+# Speed
+![Speed](road-runner.jpg)
 
 !SLIDE
 
@@ -27,10 +27,16 @@
 # Apache
 ## Threads
 
+* Stack
+* Context Switching
+
 !SLIDE
 
 # Nginx
 ## Evented
+
+* No Stack
+* Explicit Task Switching
 
 !SLIDE center
 
