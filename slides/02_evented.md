@@ -24,16 +24,16 @@
 
 !SLIDE bullets
 
-# Apache
-## Threads
+# Threads
+## Apache
 
 * Stack
 * Context Switching
 
 !SLIDE bullets
 
-# Nginx
-## Evented
+# Evented
+## Nginx
 
 * No Stack
 * Explicit Task Switching
@@ -63,9 +63,9 @@ Source: [A little holiday present: 10,000 reqs/sec with Nginx!](http://blog.webf
 
 # Most libraries aren't
 
-!SLIDE
+!SLIDE bullets
 
 # Alternatives
-## EventMachine (Ruby)
-## Twisted (Python)
-
+* EventMachine (Ruby)
+* Twisted (Python)
+* Async Framework (.Net)
