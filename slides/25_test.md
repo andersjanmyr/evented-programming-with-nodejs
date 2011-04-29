@@ -1,23 +1,81 @@
-!SLIDE 
+!SLIDE
+# Testing with Node
+
+!SLIDE small
 # Assert
+## Built into the framework
+    @@@javascript
+    assert.ok(value, [message]);
+    assert.equal(actual, expected, [message])
+    assert.notEqual(actual, expected, [message])
+    assert.deepEqual(actual, expected, [message])
+    assert.strictEqual(actual, expected, [message])
+    assert.throws(block, [error], [message])
+    assert.doesNotThrow(block, [error], [message])
+    assert.ifError(value)
+    assert.fail(actual, expected, message, operator)
+
+
+!SLIDE 
+# Assert Example
+
+    @@@javascript
+    // assert.throws(function, regexp)
+    assert.throws(
+      function() { throw new Error("Wrong value"); },
+      /value/
+    );
+    
+
+
 
 !SLIDE bullets
-# Framework Overflow
+# Test Frameworks
 
 * nodeunit
 * expresso
-* 
-* 
+* should.js
+* testosterone
+* spec
+* qunit
+* + 40 others
 
 !SLIDE 
-# Expresso
+# NodeUnit
 
+    @@@javascript
+    // ./test/test-doubled.js
+    var doubled = require('../lib/doubled');
 
+    exports['calculate'] = function (test) {
+        test.equal(doubled.calculate(2), 4);
+        test.done();
+    };
+    
 
-!SLIDE 
-# Should.js
+!SLIDE commandline
+# NodeUnit (running)
 
+    $ nodeunit test
 
+    test-doubled
+    ✔ calculate
+
+    OK: 1 assertions (3ms)
+
+!SLIDE small
+# NodeUnit (async)
+
+    @@@javascript
+    exports['read a number'] = function (test) {
+        var ev = new events.EventEmitter();
+
+        process.openStdin = function () { return ev; };
+        process.exit = test.done;
+
+        doubled.read();
+        ev.emit('data', '12');
+    };
 
 
 
