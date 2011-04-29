@@ -68,15 +68,16 @@
 
     @@@javascript
     exports['read a number'] = function (test) {
-        var ev = new events.EventEmitter();
+        test.expect(1); // Make sure the assertion is run
 
+        var ev = new events.EventEmitter();
         process.openStdin = function () { return ev; };
         process.exit = test.done;
 
         console.log = function (str) {
-            test.equal(str, 'doubled: 24');
+            test.equal(str, 'Doubled: 24');
         };
-
+        
         doubled.read();
         ev.emit('data', '12');
     };
