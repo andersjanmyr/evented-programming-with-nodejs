@@ -1,13 +1,16 @@
 !SLIDE
 # Modules
     @@@javascript
-    // tapir.js
-    var util = require ('util');
+    // module tapir.js
+
+    // require another module
+    var util = require('util');
 
     function eat(food) {
         util.log('eating '+ food);
     }
-
+    
+    // export a function
     exports.eat = eat;
 
 !SLIDE bullets
@@ -21,14 +24,14 @@
 !SLIDE
 #  Modules, How?
 
-    @javascript
+    @@@javascript
     var module = { exports: {}};
     (function(module, exports){
         ...
     })(module, module.exports);
 
 
-!SLIDE command-line
+!SLIDE commandline
 # npm, Node Package Manager
 
     $ npm install -g express
@@ -45,11 +48,11 @@
 * 1800+ modules
 
 !SLIDE
-# Notable Libraries
+# Notable External Modules
 
 !SLIDE small
 # Connect
-## Middleware framework for node
+## Rack for Node (middleware framework)
 
     @@@javascript
     connect(
@@ -79,11 +82,11 @@
 
 !SLIDE bullets
 # Templating Engines
-* ejs     - Embedded Javascript
+* Jade    - Haml with JS flavor
 * haml.js - Haml for Node
 * Mu      - Mustache for Node
 * jqtpl   - jQuery Templates for Node
-* Jade    - Similar to Haml
+* ejs     - Embedded Javascript
 * +30 others
 
 !SLIDE small
@@ -130,18 +133,17 @@
         
 
 !SLIDE small
-# SocketIO
+# Socket.IO
+## Websockets and more
 
     @@@javascript
-    var http = require('http'),
+    var http = require('http');
+    var io = require('socket.io');
 
-    server = http.createServer(function(req, res){
-        res.writeHead(200, {'Content-Type': 'text/html'});
-        res.end('<h1>Hello world</h1>');
-    });
+    server = http.createServer(function(req, res){...});
     server.listen(80);
 
-    // socket.io
+    // socket.io attaches to an existing server
     var socket = io.listen(server);
     socket.on('connection', function(client){
       // new client is here!
