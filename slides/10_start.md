@@ -1,13 +1,19 @@
-!SLIDE command-line incremental
+!SLIDE commandline
 
 # Get Started
 
     $ brew install node
 
-!SLIDE
+!SLIDE commandline
 # Start
 
     $ node # without arguments opens a REPL
+    > function hello(name) {
+    ... return 'hello ' + name;
+    ... }
+    > hello('tapir')
+    'hello tapir'
+    > 
 
 
 !SLIDE
@@ -16,7 +22,7 @@
     @@@javascript
     // hello.js
     setTimeout(function() {
-        console.log('World');
+        console.log('Tapir');
     }, 2000);
     console.log('Hello');
 
@@ -26,7 +32,7 @@
     $ node hello.js
     Hello
     ...
-    World
+    Tapir
 
 
 

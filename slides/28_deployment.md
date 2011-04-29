@@ -30,7 +30,7 @@
 
 !SLIDE
 # Cloud Foundry
-    $ npm install
+    $ npm install express  # Install locally
     mime@1.2.1 ./node_modules/express/node_modules/mime
     connect@1.4.0 ./node_modules/express/node_modules/connect
     qs@0.1.0 ./node_modules/express/node_modules/qs
@@ -55,6 +55,7 @@
 !SLIDE
 # no.de (Joyent)
 
+#
 
 
 
