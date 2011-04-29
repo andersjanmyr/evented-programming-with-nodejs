@@ -73,6 +73,10 @@
         process.openStdin = function () { return ev; };
         process.exit = test.done;
 
+        console.log = function (str) {
+            test.equal(str, 'doubled: 24');
+        };
+
         doubled.read();
         ev.emit('data', '12');
     };

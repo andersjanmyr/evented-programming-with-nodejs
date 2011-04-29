@@ -1,3 +1,14 @@
+!SLIDE 
+# Modules
+
+!SLIDE bullets
+# Modules, builtin
+* net (tcp/ip)
+* http (createServer, request, response)
+* util (log, pump, inherits, ...)
+* fs (readFile, readdir, rename, ...)
+* events (EventEmitter)
+
 !SLIDE
 # Modules
     @@@javascript
@@ -12,14 +23,6 @@
     
     // export a function
     exports.eat = eat;
-
-!SLIDE bullets
-# Modules, builtin
-* net (tcp/ip)
-* http (createServer, request, response)
-* util (log, pump, inherits, ...)
-* fs (readFile, readdir, rename, ...)
-* events (EventEmitter)
 
 !SLIDE
 #  Modules, How?
@@ -152,10 +155,52 @@
     });
 
 !SLIDE
-# Mongoose
+# MySql
 
+    @@@javascript
+    client.query(
+      'SELECT * FROM ' + TEST_TABLE,
+      function(err, results, fields) {
+        if (err) { throw err; }
 
+        console.log(results);
+        console.log(fields);
+        client.end();
+      }
+    );
 
+!SLIDE
+# Mongoose, Schema
+
+    @@@javascript
+    var Schema = mongoose.Schema
+      , ObjectId = Schema.ObjectId;
+
+    var BlogPost = new Schema({
+        author    : ObjectId
+      , title     : String
+      , body      : String
+      , date      : Date
+    });
+    
+!SLIDE small
+# Mongoose, Usage
+
+    @@@javascript
+    var BlogPost = mongoose.model('BlogPost');
+   
+    // Save
+    var post = new BlogPost();
+    post.author = 'Stravinsky';
+    instance.save(function (err) {
+      //
+    });
+
+    // Find
+    BlogPost.find({}, function (err, docs) {
+      // docs.forEach
+    });
+        
 
 
 
