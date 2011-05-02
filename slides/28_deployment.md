@@ -55,7 +55,7 @@
 !SLIDE
 # no.de (Joyent)
 
-## I have been unable to get an accoun
+## I have been unable to get an account
 
 
 
