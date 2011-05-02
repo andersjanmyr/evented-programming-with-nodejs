@@ -206,25 +206,26 @@
 
     @@@javascript
     {
-        "name" : "ordnung",
-        "version" : "0.0.1",
-        "description" : "Library for async programming",
-        "author": "Anders Janmyr <anders@janmyr.com>",
-        "homepage": "http://github.com/andersjanmyr/ordnung.git",
-        "main" : "./lib/ordnung",
-        "repository" : {
-            "type" : "git",
-            "url" : "http://github.com/andersjanmyr/ordnung.git"
-        },
-        "engine" : ["node >=0.4.0"],
-        "dependencies": {
-        },
-        "licenses": [{
-            "type": "The MIT License",
-            "url": "http://www.opensource.org/licenses/mit-license.php"}
-        ]    
+      "name": "express",
+      "description": "Sinatra inspired web development framework",
+      "version": "2.3.2",
+      "author": "TJ Holowaychuk <tj@vision-media.ca>",
+      "contributors": [ 
+        { "name": "TJ Holowaychuk", "email": "tj@vision-media.ca" }, 
+        { "name": "Guillermo Rauch", "email": "rauchg@gmail.com" }
+      ],
+      "dependencies": {
+        "connect": ">= 1.4.0 < 2.0.0",
+        "mime": ">= 0.0.1",
+        "qs": ">= 0.0.6"
+      },
+      "keywords": ["framework", "sinatra", "web", "rest", "restful"],
+      "repository": "git://github.com/visionmedia/express",
+      "main": "index",
+      "bin": { "express": "./bin/express" },
+      "engines": { "node": ">= 0.4.1 < 0.5.0" }
     }
-    
+      
 
 
 
