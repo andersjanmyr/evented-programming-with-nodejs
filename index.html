@@ -1,0 +1,913 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>evented-programming-with-nodejs</title>
+
+  <link rel="stylesheet" href="./css/reset.css" type="text/css"/>
+  <link rel="stylesheet" href="./css/showoff.css" type="text/css"/>
+
+  <script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.cycle.all.js"></script>
+	<script type="text/javascript" src="./js/jquery-print.js"></script>
+  <script type="text/javascript" src="./js/jquery.batchImageLoad.js"></script>
+
+  <script type="text/javascript" src="./js/jquery.doubletap-0.1.js"></script>
+
+  <script type="text/javascript" src="./js/fg.menu.js"></script>
+  <script type="text/javascript" src="./js/showoff.js"></script>
+  <script type="text/javascript" src="./js/jTypeWriter.js"> </script>
+  <script type="text/javascript" src="./js/sh_main.min.js"></script>
+  <script type="text/javascript" src="./js/core.js"></script>
+  <script type="text/javascript" src="./js/showoffcore.js"></script>
+
+  <link type="text/css" href="./css/fg.menu.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/theme/ui.all.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/sh_style.css" rel="stylesheet" >
+
+  
+    <link rel="stylesheet" href="file/jayway.css" type="text/css"/>
+  
+
+  
+    <script type="text/javascript" src="file/code.js"></script>
+  
+
+  <script type="text/javascript">
+  $(function(){
+    setupPreso(false, './');
+  });
+  </script>
+</head>
+
+<body>
+
+
+<a tabindex="0" href="#search-engines" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="navmenu"><span class="ui-icon ui-icon-triangle-1-s"></span>slides</a>
+<div id="navigation" class="hidden"></div>
+
+<div id="help">
+  <table>
+    <tr><td class="key">space, &rarr;</td><td>next slide</td></tr>
+    <tr><td class="key">&larr;</td><td>previous slide</td></tr>
+    <tr><td class="key">d</td><td>debug mode</td></tr>
+    <tr><td class="key">## &lt;ret&gt;</td><td>go to slide #</td></tr>
+    <tr><td class="key">c</td><td>table of contents (vi)</td></tr>
+    <tr><td class="key">f</td><td>toggle footer</td></tr>
+    <tr><td class="key">r</td><td>reload slides</td></tr>
+    <tr><td class="key">z</td><td>toggle help (this)</td></tr>
+  </table>
+</div>
+
+<div class="buttonNav">
+  <input type="submit" onClick="prevStep();" value="prev"/>
+  <input type="submit" onClick="nextStep();" value="next"/>
+</div>
+
+<div id="preso">loading presentation...</div>
+<div id="footer">
+  <span id="slideInfo"></span>
+  <span id="debugInfo"></span>
+  <span id="notesInfo"></span>
+</div>
+
+<div id="slides" class="offscreen" style="display:none;">
+<div class="slide" data-transition="none"><div class="content" ref="slides/01_intro/1">
+<h1>Evented Programming with Node.js</h1>
+
+<h3>anders.janmyr@jayway.com</h3>
+
+<h3>http://anders.janmyr.com</h3>
+
+<h3>@andersjanmyr</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/01_intro/2">
+<h1>What?</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/01_intro/3">
+<h1>Node?</h1>
+
+<h2>A set of libraries on top of Google V8</h2>
+
+<h2>Focused on doing networking right</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/01_intro/4">
+<h1>Evented?</h1>
+
+<h2>Event Driven</h2>
+
+<h2>Callbacks</h2>
+
+<h2>Asynchronous</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/01_intro/5">
+<h1>Why Node?</h1>
+
+<p><img src="./file/slides/why.jpg" width="590" height="590" alt="Why"/></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/01_intro/6">
+<h1>Cool</h1>
+
+<p><img src="./file/slides/Cool.jpg" width="453" height="504" alt="Cool"/></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/01_intro/7">
+<h1>Javascript</h1>
+
+<p class="notes">Bertrand Russell once gave a public lecture on astronomy. He
+described how the earth orbits around the sun and how the sun, in turn,
+orbits around the center of a vast collection of stars called our
+galaxy. At the end of the lecture, a little old lady at the back of the
+room got up and said: "What you have told us is rubbish. The world is
+really a flat plate supported on the back of a giant tortoise." The
+scientist gave a superior smile before replying, "What is the tortoise
+standing on?" "You're very clever, young man, very clever," said the old
+lady. "But it's turtles all the way down!"</p>
+
+<p><img src="/image/slides/turtles-all-the-way-down.png"/></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/02_evented/1">
+<h1>Speed</h1>
+
+<p><img src="./file/slides/road-runner.jpg" width="446" height="336" alt="Speed"/></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/02_evented/2">
+<h1>Threads vs Evented Programming</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="slides/02_evented/3">
+<h1>Threaded code</h1>
+
+<pre class="sh_javascript"><code>var result = db.query("select * from T");
+// Use result</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code small" ref="slides/02_evented/4">
+<h1>Evented Code</h1>
+
+<pre class="sh_javascript"><code>db.query("select * from T", function (result) {
+    // Use result
+});</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="slides/02_evented/5">
+<h1>Threads</h1>
+
+<h2>Apache</h2>
+
+<ul>
+<li>Stack</li>
+<li>Context Switching</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="slides/02_evented/6">
+<h1>Evented</h1>
+
+<h2>Nginx</h2>
+
+<ul>
+<li>No Stack</li>
+<li>Explicit Task Switching</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/02_evented/7">
+<p><img src="./file/slides/nginx-apache-reqs-sec.png" width="644" height="309" alt="nginx apache reqs"/></p>
+
+<h1>concurrency &#xD7; requests/s</h1>
+
+<p>Source: <a href="http://blog.webfaction.com/a-little-holiday-present">A little holiday present: 10,000 reqs/sec with Nginx!</a></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/02_evented/8">
+<p><img src="./file/slides/nginx-apache-memory.png" width="645" height="315" alt="nginx apache memory"/></p>
+
+<h1>concurrency &#xD7; memory</h1>
+
+<p>Source: <a href="http://blog.webfaction.com/a-little-holiday-present">A little holiday present: 10,000 reqs/sec with Nginx!</a></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/02_evented/9">
+<h1>Single-threaded event loop</h1>
+
+<h1>requires non-blocking IO</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/02_evented/10">
+<h1>Most libraries aren't</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="slides/02_evented/11">
+<h1>Alternatives</h1>
+
+<ul>
+<li>EventMachine (Ruby)</li>
+<li>Twisted (Python)</li>
+<li>Async Framework (.Net)</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="slides/10_start/1">
+<h1>Get Started</h1>
+
+<pre><code><code class="command">$ brew install node</code><code class="result">
+==&gt; Downloading http://nodejs.org/dist/node-v0.4.7.tar.gz
+######################################################################## 100.0%
+==&gt; ./configure --prefix=/usr/local/Cellar/node/0.4.7
+==&gt; make install
+==&gt; Caveats
+Please add /usr/local/lib/node to your NODE_PATH environment variable to have node libraries picked up.
+==&gt; Summary
+/usr/local/Cellar/node/0.4.7: 72 files, 7.5M, built in 1.2 minutes
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="slides/10_start/2">
+<h1>Start</h1>
+
+<pre><code><code class="command">$ node # without arguments opens a REPL</code><code class="result">
+&gt; function hello(name) {
+... return 'hello ' + name;
+... }
+&gt; hello('tapir')
+'hello tapir'
+&gt; 
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/10_start/3">
+<h1>Hello World!</h1>
+
+<pre class="sh_javascript"><code>// hello.js
+setTimeout(function() {
+    console.log('Tapir');
+}, 2000);
+console.log('Hello');</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="slides/10_start/4">
+<h1>Start Script</h1>
+
+<pre><code><code class="command">$ node hello.js</code><code class="result">
+Hello
+...
+Tapir
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="slides/15_server/1">
+<h1>An Echo Server</h1>
+
+<pre class="sh_javascript"><code>// Echo Server
+var net = require('net');
+
+var server = net.createServer(function(socket) {
+    socket.on('data', function(data) {
+        console.log(data.toString());
+        socket.write(data);
+    });
+});
+server.listen(4000)</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="slides/15_server/2">
+<h1>An HTTP Server</h1>
+
+<pre class="sh_javascript"><code>// HTTP Server
+var http = require('http');
+var web = http.createServer(function(request, response) {
+  response.writeHead(200, {
+    'Content-Type': 'text/plain'
+  });
+  response.end('Tapirs are beautiful!\n');
+});
+web.listen(4001);</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small execute" ref="slides/15_server/3">
+<h1>Let's try it out</h1>
+
+<pre class="sh_ruby"><code>[
+  `curl localhost:4001`,
+  `echo 'Hello beautiful tapir' | nc localhost 4000`
+]</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/20_modules/1">
+<h1>Modules</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="slides/20_modules/2">
+<h1>Modules, builtin</h1>
+
+<ul>
+<li>net (tcp/ip)</li>
+<li>http (createServer, request, response)</li>
+<li>util (log, pump, inherits, ...)</li>
+<li>fs (readFile, readdir, rename, ...)</li>
+<li>events (EventEmitter)</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/20_modules/3">
+<h1>Modules</h1>
+
+<pre class="sh_javascript"><code>// module tapir.js
+
+// require another module
+var util = require('util');
+
+function eat(food) {
+    util.log('eating '+ food);
+}
+
+// export a function
+exports.eat = eat;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/20_modules/4">
+<h1>Modules, How?</h1>
+
+<pre class="sh_javascript"><code>var module = { exports: {}};
+(function(module, exports){
+    ...
+})(module, module.exports);</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="slides/20_modules/5">
+<h1>npm, Node Package Manager</h1>
+
+<pre><code><code class="command">$ npm install -g express</code><code class="result">
+mime@1.2.1 /usr/local/lib/node_modules/express/node_modules/mime
+connect@1.4.0 /usr/local/lib/node_modules/express/node_modules/connect
+qs@0.1.0 /usr/local/lib/node_modules/express/node_modules/qs
+/usr/local/bin/express -&gt; /usr/local/lib/node_modules/express/bin/express
+express@2.3.2 /usr/local/lib/node_modules/express
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="slides/20_modules/6">
+<h1>Node Module Repository</h1>
+
+<ul>
+<li>http://npm.mape.me/</li>
+<li>1800+ modules</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/20_modules/7">
+<h1>Notable External Modules</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="slides/20_modules/8">
+<h1>Connect</h1>
+
+<h2>Rack for Node (middleware framework)</h2>
+
+<pre class="sh_javascript"><code>connect(
+      connect.logger()
+    , connect.static(__dirname)
+    , connect.compiler({enable: ['sass', 'coffeescript']})
+    , connect.profiler()
+  ).listen(3000);</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="slides/20_modules/9">
+<h1>Express</h1>
+
+<h2>Sinatra for Node</h2>
+
+<pre class="sh_javascript"><code>var app = express.createServer();
+app.listen(4000);
+
+app.get('/', function(req, req) {
+  res.redirect('/index.html');
+});
+
+app.post('/quiz', function(req, res) {
+  res.send(quiz.create().id.toString());
+});</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="slides/20_modules/10">
+<h1>Templating Engines</h1>
+
+<ul>
+<li>Jade    - Haml with JS flavor</li>
+<li>haml.js - Haml for Node</li>
+<li>Mu      - Mustache for Node</li>
+<li>jqtpl   - jQuery Templates for Node</li>
+<li>ejs     - Embedded Javascript</li>
+<li>+30 others</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="slides/20_modules/11">
+<h1>Jade</h1>
+
+<pre class="sh_python"><code>!!! 5
+html(lang="en")
+  head
+    title= pageTitle
+    script(type='text/javascript')
+      if (foo) {
+        bar()
+      }
+  body
+    h1 Jade - node template engine
+    #container
+      - if (youAreUsingJade)
+        p You are amazing
+      - else
+        p Get on it!</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="slides/20_modules/12">
+<h1>Mu - Mustasch</h1>
+
+<pre class="sh_html"><code>&lt;h1&gt;{{header}}&lt;/h1&gt;
+{{#bug}}
+{{/bug}}
+
+{{#items}}
+  {{#first}}
+    &lt;li&gt;&lt;strong&gt;{{name}}&lt;/strong&gt;&lt;/li&gt;
+  {{/first}}
+  {{#link}}
+    &lt;li&gt;&lt;a href="{{url}}"&gt;{{name}}&lt;/a&gt;&lt;/li&gt;
+  {{/link}}
+{{/items}}
+
+{{#empty}}
+  &lt;p&gt;The list is empty.&lt;/p&gt;
+{{/empty}}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="slides/20_modules/13">
+<h1>Socket.IO</h1>
+
+<h2>Websockets and more</h2>
+
+<pre class="sh_javascript"><code>var http = require('http');
+var io = require('socket.io');
+
+server = http.createServer(function(req, res){...});
+server.listen(80);
+
+// socket.io attaches to an existing server
+var socket = io.listen(server);
+socket.on('connection', function(client){
+  // new client is here!
+  client.on('message', function(){ &#x2026; })
+  client.on('disconnect', function(){ &#x2026; })
+});</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/20_modules/14">
+<h1>MySql</h1>
+
+<pre class="sh_javascript"><code>client.query(
+  'SELECT * FROM ' + TEST_TABLE,
+  function(err, results, fields) {
+    if (err) { throw err; }
+
+    console.log(results);
+    console.log(fields);
+    client.end();
+  }
+);</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/20_modules/15">
+<h1>Mongoose, Schema</h1>
+
+<pre class="sh_javascript"><code>var Schema = mongoose.Schema
+  , ObjectId = Schema.ObjectId;
+
+var BlogPost = new Schema({
+    author    : ObjectId
+  , title     : String
+  , body      : String
+  , date      : Date
+});</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="slides/20_modules/16">
+<h1>Mongoose, Usage</h1>
+
+<pre class="sh_javascript"><code>var BlogPost = mongoose.model('BlogPost');
+
+// Save
+var post = new BlogPost();
+post.author = 'Stravinsky';
+instance.save(function (err) {
+  //
+});
+
+// Find
+BlogPost.find({}, function (err, docs) {
+  // docs.forEach
+});</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="slides/20_modules/17">
+<h1>Packaging an NPM Module</h1>
+
+<pre class="sh_javascript"><code>{
+    "name" : "ordnung",
+    "version" : "0.0.1",
+    "description" : "Library for async programming",
+    "author": "Anders Janmyr &lt;anders@janmyr.com&gt;",
+    "homepage": "http://github.com/andersjanmyr/ordnung.git",
+    "main" : "./lib/ordnung",
+    "repository" : {
+        "type" : "git",
+        "url" : "http://github.com/andersjanmyr/ordnung.git"
+    },
+    "engine" : ["node &gt;=0.4.0"],
+    "dependencies": {
+    },
+    "licenses": [{
+        "type": "The MIT License",
+        "url": "http://www.opensource.org/licenses/mit-license.php"}
+    ]    
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/25_test/1">
+<h1>Testing with Node</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="slides/25_test/2">
+<h1>Assert</h1>
+
+<h2>Built into the framework</h2>
+
+<pre class="sh_javascript"><code>assert.ok(value, [message]);
+assert.equal(actual, expected, [message])
+assert.notEqual(actual, expected, [message])
+assert.deepEqual(actual, expected, [message])
+assert.strictEqual(actual, expected, [message])
+assert.throws(block, [error], [message])
+assert.doesNotThrow(block, [error], [message])
+assert.ifError(value)
+assert.fail(actual, expected, message, operator)</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/25_test/3">
+<h1>Assert Example</h1>
+
+<pre class="sh_javascript"><code>// assert.throws(function, regexp)
+assert.throws(
+  function() { throw new Error("Wrong value"); },
+  /value/
+);</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="slides/25_test/4">
+<h1>Test Frameworks</h1>
+
+<ul>
+<li>nodeunit</li>
+<li>expresso</li>
+<li>should.js</li>
+<li>testosterone</li>
+<li>spec</li>
+<li>qunit</li>
+<li><ul>
+<li>40 others</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/25_test/5">
+<h1>NodeUnit</h1>
+
+<pre class="sh_javascript"><code>// ./test/test-doubled.js
+var doubled = require('../lib/doubled');
+
+exports['calculate'] = function (test) {
+    test.equal(doubled.calculate(2), 4);
+    test.done();
+};</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="slides/25_test/6">
+<h1>NodeUnit (running)</h1>
+
+<pre><code><code class="command">$ nodeunit test</code><code class="result">
+
+test-doubled
+&#x2714; calculate
+
+OK: 1 assertions (3ms)
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="slides/25_test/7">
+<h1>NodeUnit (async)</h1>
+
+<pre class="sh_javascript"><code>exports['read a number'] = function (test) {
+    test.expect(1); // Make sure the assertion is run
+
+    var ev = new events.EventEmitter();
+    process.openStdin = function () { return ev; };
+    process.exit = test.done;
+
+    console.log = function (str) {
+        test.equal(str, 'Doubled: 24');
+    };
+
+    doubled.read();
+    ev.emit('data', '12');
+};</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/28_deployment/1">
+<h1>Deployment</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small commandline" ref="slides/28_deployment/2">
+<h1>Nodester</h1>
+
+<pre><code><code class="command">$ nodester npm install express</code><code class="result">
+</code><code class="command">$ git push nodester master</code><code class="result">
+Counting objects: 5, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 341 bytes, done.
+Total 3 (delta 2), reused 0 (delta 0)
+remote: Syncing repo with chroot
+remote: From /node/hosted_apps/andersjanmyr/1346-7856c14e6a5d92a6b5374ec4772a6da0.git/.
+remote:    38f4e6e..8f59169  master     -&gt; origin/master
+remote: Updating 38f4e6e..8f59169
+remote: Fast-forward
+remote:  Gemfile.lock |   10 ++++------
+remote:  1 files changed, 4 insertions(+), 6 deletions(-)
+remote: Checking ./.git/hooks/post-receive
+remote: Attempting to restart your app: 1346-7856c14e6a5d92a6b5374ec4772a6da0
+remote: App restarted..
+remote:
+remote:
+remote:     \m/ Nodester out \m/
+remote:
+remote:
+To ec2-user@nodester.com:/node/hosted_apps/andersjanmyr/1346-7856c14e6a5d92a6b5374ec4772a6da0.git
+   38f4e6e..8f59169  master -&gt; master
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small commandline" ref="slides/28_deployment/3">
+<h1>Cloud Foundry</h1>
+
+<pre><code><code class="command">$ npm install express  # Install locally</code><code class="result">
+mime@1.2.1 ./node_modules/express/node_modules/mime
+connect@1.4.0 ./node_modules/express/node_modules/connect
+qs@0.1.0 ./node_modules/express/node_modules/qs
+express@2.3.0 ./node_modules/express
+
+</code><code class="command">$ vmc push</code><code class="result">
+Would you like to deploy from the current directory? [Yn]: Y
+Application Name: snake
+Application Deployed URL: 'snake.cloudfoundry.com'?
+Detected a Node.js Application, is this correct? [Yn]:
+Memory Reservation [Default:64M] (64M, 128M, 256M, 512M, 1G or 2G)
+Creating Application: OK
+Would you like to bind any services to 'snake'? [yN]:
+Uploading Application:
+  Checking for available resources: OK
+  Packing application: OK
+  Uploading (1K): OK
+Push Status: OK
+Staging Application: OK
+Starting Application: ........OK
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/28_deployment/4">
+<h1>no.de (Joyent)</h1>
+
+<h2>I have been unable to get an accoun</h2>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/29_tools/1">
+<h1>Tools</h1>
+
+<p><img src="./file/slides/tools.jpg" width="480" height="403" alt="Tools"/></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="slides/29_tools/2">
+<h1>Reloaders</h1>
+
+<pre><code><code class="command">$ npm install nodemon</code><code class="result">
+nodemon@0.3.2 ../node_modules/nodemon
+
+</code><code class="command">$ nodemon server.js </code><code class="result">
+30 Apr 08:21:23 - [nodemon] running server.js 
+...
+# Saving the file
+30 Apr 08:22:01 - [nodemon] restarting due to changes...
+
+# Alternative
+</code><code class="command">$ npm install supervisor</code><code class="result">
+</code><code class="command">$ supervisor server.js </code><code class="result">
+DEBUG: Watching directory '/evented-programming-with-nodejs/. 
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/29_tools/3">
+<h1>Debugging</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="slides/29_tools/4">
+<h1>node debug</h1>
+
+<pre><code><code class="command">$ node debug server.js</code><code class="result">
+debug&gt; run
+debugger listening on port 5858
+connecting...ok
+break in #&lt;Socket&gt; ./server.js:9
+    debugger;
+
+debug&gt; p data.toString();
+tapir
+
+// Javascript
+var echo = net.createServer(function(socket) {
+  socket.on('data', function(data) {
+      debugger; // &lt;= break into debugger
+      socket.write(data);
+  });
+});
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="slides/29_tools/5">
+<h1>node-inspector</h1>
+
+<pre><code><code class="command">$ node-inspector &amp;</code><code class="result">
+visit http://0.0.0.0:8080/debug?port=5858 to start debugging
+
+</code><code class="command">$ node --debug server.js</code><code class="result">
+debugger listening on port 5858
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/29_tools/6">
+<h1>node-inspector</h1>
+
+<p><img src="./file/slides/nodeJS-Inspector.png" width="840" height="580" alt="node-inspector"/></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/40_idioms/1">
+<h1>Idioms for Node</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/40_idioms/2">
+<h1>Callbacks</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="slides/40_idioms/3">
+<h1>Fall Through (callbacks)</h1>
+
+<pre class="sh_javascript"><code>// What's wrong with this code?
+function doSomething(response, callback) {
+  doSomeAsyncCall('abc', 123, function(err, result) {
+    if (err) {
+      callback(err);
+    }
+    callback(null, result);
+  });
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="slides/40_idioms/4">
+<h1>Fall Through (callbacks)</h1>
+
+<pre class="sh_javascript"><code>// Add return statements
+function doSomething(response, callback) {
+  doSomeAsyncCall('abc', 123, function(err, result) {
+    if (err) {
+      return callback(err);
+    }
+    return callback(null, result);
+  });
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/40_idioms/5">
+<h1>Nesting (callbacks)</h1>
+
+<pre class="sh_javascript"><code>function rideTapir(name, callback) {
+  findTapir(name, function(err, tapir) {
+    groomTapir(tapir, function(err) {
+      ride(tapir, callback);
+    }
+  }
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/40_idioms/6">
+<h1>Nesting (callbacks)</h1>
+
+<pre class="sh_javascript"><code>// Step Down Rule (Clean Code)
+function rideTapir(name, callback) {
+  findTapir(name, groom);
+
+  function groom(err, tapir) {
+      groomTapir(tapir, rideCallback);
+  }
+
+  function rideCallback(err) {
+    ride(tapir, callback);
+  }
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="slides/40_idioms/7">
+<h1>Exceptions</h1>
+
+<pre class="sh_javascript"><code>function insertIntoTable(row, callback(err, data) {
+  if (err) return callback(err);
+  ...
+
+  // Everything is OK
+  return callback(null, 'row inserted');
+}</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/40_idioms/8">
+<h1>Collections</h1>
+
+<pre class="sh_javascript"><code>function doAll(collection, callback) {
+  var left = collection.length;
+  collection.forEach(function(fun) {
+    fun(function() {
+      if (--left == 0) callback();
+    });
+  });
+};</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content execute small" ref="slides/40_idioms/9">
+<h1>Call doAll</h1>
+
+<pre class="sh_javascript"><code>// What does this code do?
+var r = [];
+doAll([
+  function(callback) { 
+    setTimeout(function() {r.push(1); callback();}, 2000 )},
+  function(callback) { 
+    setTimeout(function() {r.push(2); callback();}, 3000 )},
+  function(callback) { 
+    setTimeout(function() {r.push(3); callback();}, 1000 )}
+  ], function() { alert(r); });</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="slides/40_idioms/10">
+<h1>Sequencing</h1>
+
+<pre class="sh_javascript"><code>function doInSequence(collection, callback) {
+    var queue = collection.slice(0); // Duplicate
+
+    function iterate() {
+      if (queue.length === 0) return callback();
+      var fun = queue.splice(0, 1)[0];
+      fun(function(err) {
+        if (err) throw err; 
+        iterate();
+      });
+    }
+    iterate();
+};</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="slides/40_idioms/11">
+<h1>Sequencing</h1>
+
+<h2>with tail recursion (kind of)</h2>
+
+<pre class="sh_javascript"><code>function doInSequence(collection, callback) {
+    var queue = collection.slice(0); // Duplicate
+
+    function iterate() {
+      if (queue.length === 0) return callback();
+      var fun = queue.splice(0, 1)[0];
+      fun(function(err) {
+        if (err) throw err; 
+        process.nextTick(iterate);
+      });
+    }
+    iterate();
+};</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content execute small" ref="slides/40_idioms/12">
+<h1>Call doInSequence</h1>
+
+<pre class="sh_javascript"><code>// What does this code do?;
+var r = [];
+doInSequence([
+  function(callback) { 
+    setTimeout(function() {r.push(1); callback();}, 2000 )},
+  function(callback) { 
+    setTimeout(function() {r.push(2); callback();}, 3000 )},
+  function(callback) { 
+    setTimeout(function() {r.push(3); callback();}, 1000 )}
+  ], function() { alert(r); });</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content small" ref="slides/40_idioms/13">
+<h1>Futures</h1>
+
+<pre class="sh_javascript"><code>var join = Futures.join(),
+  fs = [ Futures.future(), Futures.future()],
+  e;
+
+setTimeout(function () { fs[1].deliver(e, "World"); }, 100);
+setTimeout(function () { fs[0].deliver(e, "Hello"); }, 500);
+
+join.add(fs);
+
+join.when(function (f0Args, f1Args, f2Args) {
+  console.log(f1Args[1], f2Args[1], f3Args[1], f2Args[2]);
+});</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets small" ref="slides/99_summary/1">
+<h1>Code and Slides</h1>
+
+<h2>Presentation Live</h2>
+
+<ul>
+<li>http://github.com/andersjanmyr/TODO PRESENTATION HERE</li>
+</ul>
+
+
+<h2>Presentation Source</h2>
+
+<ul>
+<li>https://github.com/andersjanmyr/evented-programming-with-nodejs</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/99_summary/2">
+<h1>Questions?</h1>
+
+<h3>anders.janmyr@jayway.com</h3>
+
+<h3>http://anders.janmyr.com</h3>
+
+<h3>@andersjanmyr</h3>
+</div>
+</div>
+</div>
+
+</body>
+</html>
