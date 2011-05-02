@@ -1,13 +1,13 @@
 !SLIDE bullets small
 # Code and Slides
 
-## Code
+## Presentation Live
 
-* http:://github.com/andersjanmyr/TODO CODE HERE 
+* http://andersjanmyr.github.com/evented-programming-with-nodejs
 
-## Presentation
+## Presentation Source
 
-* http://github.com/andersjanmyr/TODO PRESENTATION HERE
+* https://github.com/andersjanmyr/evented-programming-with-nodejs
 
 
 !SLIDE
