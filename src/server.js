@@ -6,6 +6,7 @@ var net = require('net');
 var echo = net.createServer(function(socket) {
     socket.on('data', function(data) {
         console.log(data.toString());
+        debugger;
         socket.write(data);
     });
 });

@@ -1,8 +1,8 @@
 !SLIDE
 # Deployment
 
-!SLIDE
-# Nodester command-line small
+!SLIDE small commandline
+# Nodester
     $ nodester npm install express
     $ git push nodester master
     Counting objects: 5, done.
@@ -28,7 +28,7 @@
     To ec2-user@nodester.com:/node/hosted_apps/andersjanmyr/1346-7856c14e6a5d92a6b5374ec4772a6da0.git
        38f4e6e..8f59169  master -> master
 
-!SLIDE
+!SLIDE small commandline
 # Cloud Foundry
     $ npm install express  # Install locally
     mime@1.2.1 ./node_modules/express/node_modules/mime
@@ -55,7 +55,8 @@
 !SLIDE
 # no.de (Joyent)
 
-#
+## I have been unable to get an accoun
+
 
 
 

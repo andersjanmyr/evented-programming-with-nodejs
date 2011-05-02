@@ -201,6 +201,30 @@
       // docs.forEach
     });
         
+!SLIDE small
+# Packaging an NPM Module
+
+    @@@javascript
+    {
+        "name" : "ordnung",
+        "version" : "0.0.1",
+        "description" : "Library for async programming",
+        "author": "Anders Janmyr <anders@janmyr.com>",
+        "homepage": "http://github.com/andersjanmyr/ordnung.git",
+        "main" : "./lib/ordnung",
+        "repository" : {
+            "type" : "git",
+            "url" : "http://github.com/andersjanmyr/ordnung.git"
+        },
+        "engine" : ["node >=0.4.0"],
+        "dependencies": {
+        },
+        "licenses": [{
+            "type": "The MIT License",
+            "url": "http://www.opensource.org/licenses/mit-license.php"}
+        ]    
+    }
+    
 
 
 
