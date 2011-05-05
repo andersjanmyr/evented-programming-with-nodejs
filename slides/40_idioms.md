@@ -175,3 +175,49 @@
       console.log(f1Args[1], f2Args[1], f3Args[1], f2Args[2]);
     });
 
+!SLIDE small
+# Fibers
+
+    @@@javascript
+    require('fibers');
+    var print = require('util').print;
+
+    function sleep(ms) {
+        var fiber = Fiber.current;
+        setTimeout(function() { fiber.run(); }, ms);
+        yield();
+    }
+
+    Fiber(function() {
+        print('wait... ' + new Date + '\n');
+        sleep(1000);
+        print('ok... ' + new Date + '\n');
+    }).run();
+    print('back in main\n');
+
+
+!SLIDE small
+# async
+
+    @@@javascript
+    async.map(['file1','file2','file3'], fs.stat, function(err, results){
+        // results is now an array of stats for each file
+    });
+
+    async.filter(['file1','file2','file3'], path.exists, function(results){
+        // results now equals an array of the existing files
+    });
+
+    async.parallel([
+        function(){ ... },
+        function(){ ... }
+    ], callback);
+
+    async.series([
+        function(){ ... },
+        function(){ ... }
+    ], callback);
+
+
+
+

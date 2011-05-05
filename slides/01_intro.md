@@ -27,7 +27,6 @@
 ![Why](why.jpg)
 
 !SLIDE center
-
 # Cool
 ![Cool](Cool.jpg)
 
@@ -46,7 +45,6 @@ standing on?" "You're very clever, young man, very clever," said the old
 lady. "But it's turtles all the way down!"
 
 <img src='/image/slides/turtles-all-the-way-down.png'></img>
-
 
 
 

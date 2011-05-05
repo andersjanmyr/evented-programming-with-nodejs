@@ -66,6 +66,8 @@ Source: [A little holiday present: 10,000 reqs/sec with Nginx!](http://blog.webf
 !SLIDE bullets
 
 # Alternatives
-* EventMachine (Ruby)
-* Twisted (Python)
-* Async Framework (.Net)
+
+* Twisted (Python, 2002)
+* EventMachine (Ruby, 2003)
+* Goliath (Ruby, 2011)
+* Async Framework (.Net, 2011)
