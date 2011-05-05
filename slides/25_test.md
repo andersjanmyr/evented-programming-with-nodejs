@@ -16,7 +16,7 @@
     assert.fail(actual, expected, message, operator)
 
 
-!SLIDE 
+!SLIDE small
 # Assert Example
 
     @@@javascript

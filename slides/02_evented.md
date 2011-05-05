@@ -67,6 +67,7 @@ Source: [A little holiday present: 10,000 reqs/sec with Nginx!](http://blog.webf
 
 # Alternatives
 
+* `select()` (C, 1983)
 * Twisted (Python, 2002)
 * EventMachine (Ruby, 2003)
 * Goliath (Ruby, 2011)

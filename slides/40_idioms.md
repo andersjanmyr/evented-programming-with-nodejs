@@ -32,7 +32,7 @@
       });
     }
 
-!SLIDE
+!SLIDE small
 # Nesting (callbacks)
 
     @@@javascript
@@ -44,7 +44,7 @@
       }
     }
 
-!SLIDE
+!SLIDE small
 # Nesting (callbacks)
 
     @@@javascript
@@ -74,8 +74,8 @@
 
 
 
-!SLIDE
-# Collections
+!SLIDE small
+# Parallel Execution
     @@@javascript
     function doAll(collection, callback) {
       var left = collection.length;

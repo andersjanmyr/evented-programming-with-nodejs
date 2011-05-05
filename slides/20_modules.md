@@ -9,7 +9,7 @@
 * fs (readFile, readdir, rename, ...)
 * events (EventEmitter)
 
-!SLIDE
+!SLIDE small
 # Modules
     @@@javascript
     // module tapir.js
@@ -24,8 +24,8 @@
     // export a function
     exports.eat = eat;
 
-!SLIDE
-#  Modules, How?
+!SLIDE small
+#  Modules, how?
 
     @@@javascript
     var module = { exports: {}};
@@ -37,6 +37,7 @@
 !SLIDE commandline
 # npm, Node Package Manager
 
+    $ curl http://npmjs.org/install.sh | sh
     $ npm install -g express
     mime@1.2.1 /usr/local/lib/node_modules/express/node_modules/mime
     connect@1.4.0 /usr/local/lib/node_modules/express/node_modules/connect
@@ -154,7 +155,7 @@
       client.on('disconnect', function(){ … })
     });
 
-!SLIDE
+!SLIDE small
 # MySql
 
     @@@javascript
@@ -169,7 +170,7 @@
       }
     );
 
-!SLIDE
+!SLIDE small
 # Mongoose, Schema
 
     @@@javascript
