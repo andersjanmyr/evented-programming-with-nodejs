@@ -53,7 +53,7 @@
       findTapir(name, groom);
 
       function groom(err, tapir) {
-          groomTapir(tapir, rideCallback);
+        groomTapir(tapir, rideCallback);
       }
 
       function rideCallback(err) {

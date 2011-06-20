@@ -38,7 +38,7 @@
 * testosterone
 * spec
 * qunit
-* + 40 others
+* +40 others
 
 !SLIDE 
 # NodeUnit
