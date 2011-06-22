@@ -93,6 +93,7 @@
 * Mu      - Mustache for Node
 * jqtpl   - jQuery Templates for Node
 * ejs     - Embedded Javascript
+* eco     - Embedded Coffeescript
 * +30 others
 
 !SLIDE small
