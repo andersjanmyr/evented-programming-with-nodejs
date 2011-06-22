@@ -45,11 +45,13 @@
     /usr/local/bin/express -> /usr/local/lib/node_modules/express/bin/express
     express@2.3.2 /usr/local/lib/node_modules/express
 
-!SLIDE bullets
+!SLIDE bullets incremental
 # Node Module Repository
 
 * http://npm.mape.me/
-* 1800+ modules
+* 1800+ modules (May 6th, 2011)
+* 2500+ modules (June, 22nd, 2011)
+
 
 !SLIDE
 # Notable External Modules
@@ -206,6 +208,7 @@
 # Packaging an NPM Module
 
     @@@javascript
+    // package.json
     {
       "name": "express",
       "description": "Sinatra inspired web development framework",

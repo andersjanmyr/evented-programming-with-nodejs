@@ -29,7 +29,7 @@
 
 
 
-!SLIDE bullets
+!SLIDE bullets small
 # Test Frameworks
 
 * nodeunit
