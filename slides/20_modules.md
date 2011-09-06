@@ -48,9 +48,10 @@
 !SLIDE bullets incremental
 # Node Module Repository
 
-* http://npm.mape.me/
-* 1800+ modules (May 6th, 2011)
-* 2500+ modules (June, 22nd, 2011)
+* http://search.npmjs.org
+* ~1800 modules (May 6th, 2011)
+* ~2500 modules (June, 22nd, 2011)
+* ~3700 modules (Sept, 10th, 2011)
 
 
 !SLIDE
