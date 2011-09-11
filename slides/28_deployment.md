@@ -23,6 +23,8 @@
 !SLIDE small commandline
 # Heroku
 
+    $ heroku create APP_NAME --stack cedar
+
     $ cat Procfile
     web: node lib/app.js
 

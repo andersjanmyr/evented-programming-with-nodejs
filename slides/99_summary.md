@@ -1,18 +1,10 @@
 !SLIDE bullets small
-# Code and Slides
+# Thank You!
 
-## Presentation Live
-
-* http://andersjanmyr.github.com/evented-programming-with-nodejs
-
-## Presentation Source
-
-* https://github.com/andersjanmyr/evented-programming-with-nodejs
+* _Blog_, http://goo.gl/W33ko
+* _Slides_, http://goo.gl/bqJD9
+* _Email_, anders.janmyr@jayway.com
+* _Twitter_, @andersjanmyr
 
 
-!SLIDE
-# Questions?
-### anders.janmyr@jayway.com
-### http://anders.janmyr.com
-### @andersjanmyr
 

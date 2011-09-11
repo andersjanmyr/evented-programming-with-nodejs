@@ -34,9 +34,9 @@
 
 * nodeunit
 * expresso
+* jasmine
 * should.js
 * testosterone
-* spec
 * qunit
 * +40 others
 
