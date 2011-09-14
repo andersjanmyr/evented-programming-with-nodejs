@@ -6,7 +6,6 @@ var net = require('net');
 var echo = net.createServer(function(socket) {
     socket.on('data', function(data) {
         console.log(data.toString());
-        debugger;
         socket.write(data);
     });
 });
@@ -20,7 +19,7 @@ var web = http.createServer(function(request, response) {
   response.writeHead(200, {
     'Content-Type': 'text/plain'
   });
-  var message = 'Tapirs are beutiful!';
+  var message = 'Tapirs are beautiful!';
   console.log(message)
   response.end(message + '\n');
 });
