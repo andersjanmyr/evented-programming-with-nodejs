@@ -8,10 +8,11 @@
 # What?
 
 
-!SLIDE
+!SLIDE bullets
 # Node?
-## A set of libraries on top of Google V8
-## Focused on doing networking right
+* A set of libraries on top of Google V8
+* Focused on doing networking right
+* Uses a single thread
 
 !SLIDE
 
