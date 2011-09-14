@@ -159,42 +159,6 @@
       ], function() { alert(r); });
  
 
-!SLIDE small
-# Futures 
-    @@@javascript
-    var join = Futures.join(),
-      fs = [ Futures.future(), Futures.future()],
-      e;
-
-    setTimeout(function () { fs[1].deliver(e, "World"); }, 100);
-    setTimeout(function () { fs[0].deliver(e, "Hello"); }, 500);
-
-    join.add(fs);
-
-    join.when(function (f0Args, f1Args, f2Args) {
-      console.log(f1Args[1], f2Args[1], f3Args[1], f2Args[2]);
-    });
-
-!SLIDE small
-# Fibers
-
-    @@@javascript
-    require('fibers');
-    var print = require('util').print;
-
-    function sleep(ms) {
-        var fiber = Fiber.current;
-        setTimeout(function() { fiber.run(); }, ms);
-        yield();
-    }
-
-    Fiber(function() {
-        print('wait... ' + new Date + '\n');
-        sleep(1000);
-        print('ok... ' + new Date + '\n');
-    }).run();
-    print('back in main\n');
-
 
 !SLIDE small
 # async
