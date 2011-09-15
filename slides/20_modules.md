@@ -4,7 +4,7 @@
 !SLIDE bullets
 # Modules, builtin
 * net (tcp/ip)
-* http (createServer, request, response)
+* http (createServer, request, ...)
 * util (log, pump, inherits, ...)
 * fs (readFile, readdir, rename, ...)
 * events (EventEmitter)
