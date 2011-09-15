@@ -206,8 +206,7 @@
       "keywords": ["framework", "sinatra", "web", "rest", "restful"],
       "repository": "git://github.com/visionmedia/express",
       "main": "index",
-      "bin": { "express": "./bin/express" },
-      "engines": { "node": ">= 0.4.1 < 0.5.0" }
+      "bin": { "express": "./bin/express" }
     }
       
 
