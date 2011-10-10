@@ -8,10 +8,11 @@
 # What?
 
 
+
 !SLIDE bullets small
 # Node?
 * A set of libraries on top of Google V8
-* Focused on doing networking right
+* Focused on doing networking right, Async IO
 * Using a single thread
 
 !SLIDE
@@ -21,6 +22,23 @@
 ## Asynchronous
 ## Event Driven
 ## Callbacks
+
+!SLIDE code
+# The Event Loop
+
+    @@@javascript
+    while(somethingIsGoingOn()) {
+        readyChannels = select(ioChannels);
+        for (channel in readyChannels) 
+            performIO(channel);
+    }
+
+!SLIDE code
+# The Real Event Loop
+
+    @@@javascript
+    // The Real Event Loop is implicit
+
 
 !SLIDE center
 
