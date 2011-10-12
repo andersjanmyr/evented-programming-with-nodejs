@@ -12,35 +12,11 @@
     ==> Summary
     /usr/local/Cellar/node/0.4.7: 72 files, 7.5M, built in 1.2 minutes
 
-!SLIDE commandline
-# Start
-
-    $ node # without arguments opens a REPL
-    > function hello(name) {
-    ... return 'hello ' + name;
-    ... }
-    > hello('tapir')
-    'hello tapir'
-    > 
-
-
 !SLIDE
-# Hello World!
 
-    @@@javascript
-    // hello.js
-    setTimeout(function() {
-        console.log('Tapir');
-    }, 2000);
-    console.log('Hello');
+# Demo
 
-!SLIDE commandline
-# Start Script
-
-    $ node hello.js
-    Hello
-    ...
-    Tapir
+## [http://whatismyip.com](http://whatismyip.com)
 
 
 

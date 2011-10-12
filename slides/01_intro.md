@@ -37,7 +37,8 @@
 # The Real Event Loop
 
     @@@javascript
-    // The Real Event Loop is implicit
+    // The Real Event Loop is implicit.
+    // The code is automatically inside the loop.
 
 
 !SLIDE center
