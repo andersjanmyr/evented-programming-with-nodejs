@@ -45,14 +45,14 @@
     /usr/local/bin/express -> /usr/local/lib/node_modules/express/bin/express
     express@2.3.2 /usr/local/lib/node_modules/express
 
-!SLIDE bullets incremental
+!SLIDE bullets
 # Node Module Repository
 
 * http://search.npmjs.org
-* ~1800 modules (May 6th, 2011)
-* ~2500 modules (June, 22nd, 2011)
-* ~3700 modules (Sept, 10th, 2011)
-
+* ~1800 modules (May, 2011)
+* ~2500 modules (June, 2011)
+* ~3700 modules (Sept, 2011)
+* ~4400 modules (Nov, 2011)
 
 !SLIDE
 # Notable External Modules
@@ -118,7 +118,7 @@
             p Get on it!
   
 
-!SLIDE small
+!SLIDE smaller
 # Socket.IO
 ## Websockets and more
 
@@ -137,8 +137,8 @@
       client.on('disconnect', function(){ … })
     });
 
-!SLIDE small
-# MySql
+!SLIDE smaller
+# DB (MySql, Postgres, Oracle)
 
     @@@javascript
     client.query(
@@ -152,39 +152,39 @@
       }
     );
 
-!SLIDE small
-# Mongoose, Schema
+!SLIDE smaller
+# NOSQL (MongoDB, CouchDB, Redis, Cassandra, Memcached, Hadoop, ...)
 
     @@@javascript
-    var Schema = mongoose.Schema
-      , ObjectId = Schema.ObjectId;
-
-    var BlogPost = new Schema({
-        author    : ObjectId
-      , title     : String
-      , body      : String
-      , date      : Date
+    // MongoDB
+    var mongodb = require('mongodb');
+    var server = new mongodb.Server("127.0.0.1", 27017, {});
+    var client = new mongodb.Db('test', server, {});
+    client.open(function (error, client) {
+      if (error) throw error;
+      var coll= new mongodb.Collection(client, 'documents');
+      coll.find({}, {limit:10}).toArray(function(err, docs) {
+        console.dir(docs);
+      });
     });
-    
-!SLIDE small
-# Mongoose, Usage
+
+!SLIDE smaller
+# Logging (Winston, Log-Buddy, Caterpillar, ...)
 
     @@@javascript
-    var BlogPost = mongoose.model('BlogPost');
-   
-    // Save
-    var post = new BlogPost();
-    post.author = 'Stravinsky';
-    instance.save(function (err) {
-      //
-    });
+    // Logging with winston
+    var winston = require('winston');
 
-    // Find
-    BlogPost.find({}, function (err, docs) {
-      // docs.forEach
-    });
-        
-!SLIDE small
+    winston.info('Hello distributed log files!');        
+
+    // Add a file transport
+    winston.add(winston.transports.File, { filename: 'somefile.log' });
+
+    // Available transports apart from file
+    // Mongo, Riak, Riak, ...
+
+
+!SLIDE smaller
 # Packaging an NPM Module
 
     @@@javascript
