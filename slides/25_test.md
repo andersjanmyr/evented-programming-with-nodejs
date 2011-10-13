@@ -1,7 +1,7 @@
 !SLIDE
 # Testing with Node
 
-!SLIDE small
+!SLIDE smaller
 # Assert
 ## Built into the framework
     @@@javascript
@@ -16,7 +16,7 @@
     assert.fail(actual, expected, message, operator)
 
 
-!SLIDE small
+!SLIDE smaller
 # Assert Example
 
     @@@javascript
@@ -29,7 +29,7 @@
 
 
 
-!SLIDE bullets small
+!SLIDE bullets smaller
 # Test Frameworks
 
 * nodeunit
@@ -40,7 +40,7 @@
 * qunit
 * +40 others
 
-!SLIDE 
+!SLIDE smaller
 # NodeUnit
 
     @@@javascript
@@ -63,7 +63,7 @@
 
     OK: 1 assertions (3ms)
 
-!SLIDE small
+!SLIDE smaller
 # NodeUnit (async)
 
     @@@javascript
