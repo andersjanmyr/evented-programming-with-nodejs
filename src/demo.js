@@ -15,18 +15,35 @@ var echoServer = net.createServer(function(socket) {
 
 echoServer.listen(4000);
 
+echoClient = net.createConnection(4000);
+echoClient.on('connect', function() {
+  setInterval(function() {
+    echoClient.write('echo from client');
+  }, 5000);
+});
+
+
 var express = require('express');
 
 var app = express.createServer();
 
 app.listen(4001);
 
-app.get('/', function(req, resp) {
-  console.log(req.headers);
-  resp.end('from http\n');
+app.get('/:name', function(req, resp) {
+  console.log(req.params.name + ' from http');
+  resp.end(req.params.name + ' from http\n');
 });
 
+var request = require('request');
 
+setInterval(function() {
+  request('http://localhost:4001/fromHttpClient', function(err, response, body) {
+    if (err) console.log(err);
+  })
+}, 3000);
+
+
+// Start with REPL
 // Start with console.log
 // Add a setTimeout
 // Add another
