@@ -220,6 +220,67 @@
     // Available transports apart from file
     // Mongo, Riak, Riak, ...
 
+!SLIDE smaller
+# DNode Server
+
+    @@@javascript
+    var dnode = require('dnode');
+
+    var server = dnode({
+        zing : function (n, cb) { cb(n * 100) }
+    });
+    server.listen(5050);
+    
+!SLIDE smaller
+# DNode Client
+
+    @@@javascript
+    var dnode = require('dnode');
+
+    dnode.connect(5050, function (remote) {
+        remote.zing(66, function (n) {
+            console.log('n = ' + n);
+        });
+    });
+
+!SLIDE smaller
+# Queues (beanstalk_client)
+
+    @@@javascript
+    var client = require('beanstalk_client').Client;
+
+    client.connect('127.0.0.1:11300', function(err, conn) {
+        var job_data = {"data": {"name": "node-beanstalk-client"}};
+        var priority = 0;
+        var delay = 5;
+        var timeToRun = 1;
+        conn.put(priority, delay, timeToRun, JSON.stringify(job_data), function(err, job_id) {
+            console.log('put job: ' + job_id);
+            process.exit();
+        });
+    });
+
+!SLIDE smaller
+# Queues Producer
+
+    @@@javascript
+    var client = require('beanstalk_client').Client;
+
+    client.connect('127.0.0.1:11300', function(err, conn) {
+        var reserve = function() {
+            conn.reserve(function(err, job_id, job_json) {
+                console.log('got job: ' + job_id);
+                console.log('got job data: ' + job_json);
+                console.log('module name is ' + JSON.parse(job_json).data.name);
+                conn.destroy(job_id, function(err) {
+                    console.log('destroyed job');
+                    reserve();
+                });
+            });
+        }
+
+        reserve();
+    });
 
 !SLIDE smaller
 # Packaging an NPM Module

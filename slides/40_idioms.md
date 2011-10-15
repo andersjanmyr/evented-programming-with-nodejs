@@ -4,7 +4,7 @@
 !SLIDE
 # Callbacks
 
-!SLIDE small
+!SLIDE smaller
 # Fall Through (callbacks)
 
     @@@javascript
@@ -18,7 +18,7 @@
       });
     }
 
-!SLIDE small
+!SLIDE smaller
 # Fall Through (callbacks)
 
     @@@javascript
@@ -32,7 +32,7 @@
       });
     }
 
-!SLIDE small
+!SLIDE smaller
 # Nesting (callbacks)
 
     @@@javascript
@@ -44,7 +44,7 @@
       }
     }
 
-!SLIDE small
+!SLIDE smaller
 # Nesting (callbacks)
 
     @@@javascript
@@ -61,7 +61,7 @@
       }
     }
 
-!SLIDE small
+!SLIDE smaller
 # Exceptions
     @@@javascript
     function insertIntoTable(row, callback(err, data) {
@@ -74,7 +74,7 @@
 
 
 
-!SLIDE small
+!SLIDE smaller
 # Parallel Execution
     @@@javascript
     function doAll(collection, callback) {
@@ -86,7 +86,7 @@
       });
     };
 
-!SLIDE execute small
+!SLIDE execute smaller
 # Call doAll
     @@@javascript
     // What does this code do?
@@ -104,7 +104,7 @@
 
 
 
-!SLIDE small
+!SLIDE smaller
 # Sequencing
 
     @@@javascript
@@ -124,7 +124,7 @@
 
 
 
-!SLIDE small
+!SLIDE smaller
 # Sequencing
 ## with tail recursion (kind of)
 
@@ -144,7 +144,7 @@
     };
 
 
-!SLIDE execute small
+!SLIDE execute smaller
 # Call doInSequence
     @@@javascript
     // What does this code do?;
@@ -160,7 +160,7 @@
  
 
 
-!SLIDE small
+!SLIDE smaller
 # async
 
     @@@javascript
