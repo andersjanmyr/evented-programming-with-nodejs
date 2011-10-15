@@ -9,6 +9,43 @@
 * fs (readFile, readdir, rename, ...)
 * events (EventEmitter)
 
+!SLIDE smaller code
+# EventEmitter
+
+    @@@javascript
+    var events = require('events');
+    var util = require('util');
+    Tapir = function() {
+      // Similar to calling super
+      events.EventEmitter.call(this);
+
+      this.swim = function(){
+        this.emit("swimming");
+      }
+
+      this.eat = function(food) {
+        console.log('Munching '  + food);
+        this.emit('eating', food);
+      }
+
+    };
+    // Set EventEmitter as Eventers prototype
+    util.inherits(Eventer, events.EventEmitter);
+
+!SLIDE smaller code
+# EventEmitter, usage
+
+    @@@javascript
+    tapir = new Tapir();
+
+    tapir.on('swimming', function() {
+      console.log('It is swimming');
+    });
+
+    tapir.on('eating', function(food) {
+      console.log('Stop feeding the tapir ' + food);
+    });
+
 !SLIDE small
 # Modules
     @@@javascript
