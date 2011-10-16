@@ -36,7 +36,7 @@
 * expresso
 * jasmine
 * should.js
-* testosterone
+* vows
 * qunit
 * +40 others
 
@@ -70,15 +70,19 @@
     exports['read a number'] = function (test) {
         test.expect(1); // Make sure the assertion is run
 
+        // Mock stdin and exit
         var ev = new events.EventEmitter();
         process.openStdin = function () { return ev; };
         process.exit = test.done;
-
+        
+        // Setup the expectation
         console.log = function (str) {
             test.equal(str, 'Doubled: 24');
         };
-        
+       
+        // Perform the action
         doubled.read();
+        // Simulate 12 entered on stdin
         ev.emit('data', '12');
     };
 

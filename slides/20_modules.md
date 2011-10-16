@@ -45,7 +45,7 @@
     });
 
 !SLIDE small
-# Modules, How?
+# Modules, usage
     @@@javascript
     // module tapir.js
 
@@ -92,7 +92,7 @@
 !SLIDE
 # Notable External Modules
 
-!SLIDE small
+!SLIDE smaller
 # Connect
 ## Rack for Node (middleware framework)
 
@@ -105,7 +105,7 @@
       ).listen(3000);
     
 
-!SLIDE small
+!SLIDE smaller
 # Express
 ## Sinatra for Node
 
@@ -213,10 +213,11 @@
     winston.info('Hello distributed log files!');        
 
     // Add a file transport
-    winston.add(winston.transports.File, { filename: 'somefile.log' });
+    winston.add(winston.transports.File,
+        { filename: 'somefile.log' });
 
     // Available transports apart from file
-    // Mongo, Riak, Riak, ...
+    // Console, Mongo, Riak, ...
 
 !SLIDE smaller
 # DNode Server
@@ -225,7 +226,9 @@
     var dnode = require('dnode');
 
     var server = dnode({
-        zing : function (n, cb) { cb(n * 100) }
+      zing : function (n, callback) {
+        callback(n * 100);
+      }
     });
     server.listen(5050);
     
@@ -242,42 +245,28 @@
     });
 
 !SLIDE smaller
-# Queues (beanstalk_client)
+# Queues (Kue, beanstalk_client, ...)
 
     @@@javascript
-    var client = require('beanstalk_client').Client;
-
-    client.connect('127.0.0.1:11300', function(err, conn) {
-        var job_data = {"data": {"name": "node-beanstalk-client"}};
-        var priority = 0;
-        var delay = 5;
-        var timeToRun = 1;
-        conn.put(priority, delay, timeToRun, JSON.stringify(job_data), function(err, job_id) {
-            console.log('put job: ' + job_id);
-            process.exit();
-        });
-    });
+    // Kue producer
+    var email = jobs.create('email', {
+        title: 'Account renewal required'
+      , to: 'tj@learnboost.com'
+      , template: 'renewal-email'
+    }).delay(minute)
+      .priority('high')
+      .save();
 
 !SLIDE smaller
-# Queues Producer
+# Queues 
 
     @@@javascript
-    var client = require('beanstalk_client').Client;
+    // Kue consumer
+    var kue = require('kue')
+    , jobs = kue.createQueue();
 
-    client.connect('127.0.0.1:11300', function(err, conn) {
-        var reserve = function() {
-            conn.reserve(function(err, job_id, job_json) {
-                console.log('got job: ' + job_id);
-                console.log('got job data: ' + job_json);
-                console.log('module name is ' + JSON.parse(job_json).data.name);
-                conn.destroy(job_id, function(err) {
-                    console.log('destroyed job');
-                    reserve();
-                });
-            });
-        }
-
-        reserve();
+    jobs.process('email', function(job, done){
+      email(job.data.to, done);
     });
 
 !SLIDE smaller
@@ -291,7 +280,6 @@
       "version": "2.3.2",
       "author": "TJ Holowaychuk <tj@vision-media.ca>",
       "contributors": [ 
-        { "name": "TJ Holowaychuk", "email": "tj@vision-media.ca" }, 
         { "name": "Guillermo Rauch", "email": "rauchg@gmail.com" }
       ],
       "dependencies": {

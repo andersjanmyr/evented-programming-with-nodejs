@@ -14,10 +14,10 @@
     # Saving the file
     30 Apr 08:22:01 - [nodemon] restarting due to changes...
     
-    # Alternative
+    # Alternatives
+    # forever supervisor
+    $ npm install forever
     $ npm install supervisor
-    $ supervisor server.js 
-    DEBUG: Watching directory '/evented-programming-with-nodejs/. 
 
 
 
