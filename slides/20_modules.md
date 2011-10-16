@@ -16,8 +16,6 @@
     var events = require('events');
     var util = require('util');
     Tapir = function() {
-      // Similar to calling super
-      events.EventEmitter.call(this);
 
       this.swim = function(){
         this.emit("swimming");
@@ -47,7 +45,7 @@
     });
 
 !SLIDE small
-# Modules
+# Modules, How?
     @@@javascript
     // module tapir.js
 
