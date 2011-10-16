@@ -33,35 +33,6 @@
     }
 
 !SLIDE smaller
-# Nesting (callbacks)
-
-    @@@javascript
-    function rideTapir(name, callback) {
-      findTapir(name, function(err, tapir) {
-        groomTapir(tapir, function(err) {
-          ride(tapir, callback);
-        }
-      }
-    }
-
-!SLIDE smaller
-# Nesting (callbacks)
-
-    @@@javascript
-    // Step Down Rule (Clean Code)
-    function rideTapir(name, callback) {
-      findTapir(name, groom);
-
-      function groom(err, tapir) {
-        groomTapir(tapir, rideCallback);
-      }
-
-      function rideCallback(err) {
-        ride(tapir, callback);
-      }
-    }
-
-!SLIDE smaller
 # Exceptions
     @@@javascript
     function insertIntoTable(row, callback(err, data) {
