@@ -1,13 +1,3 @@
-!SLIDE bullets 
-# Summary Node.js
-
-* Server-side Javascript
-* _Really fast_ V8
-* Single Threaded
-* Easy to deploy
-* Different Programming Model
-* Harder error-handling
-
 
 !SLIDE bullets
 # Thank You!
