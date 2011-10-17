@@ -19,7 +19,7 @@
 
       this.eat = function(food) {
         if (isMeat(food))
-          this.emit('error', new Error(I'm a vegetarian));
+          this.emit('error', new Error("I'm a vegetarian"));
         this.emit('eating', food);
       }
 
@@ -33,13 +33,14 @@
     @@@javascript
     tapir = new Tapir();
 
-    tapir.on('swimming', function() {
-      console.log('It is swimming');
+    tapir.on('eating', function(food) {
+      console.log('Someone fed the tapir ' + food);
     });
 
-    tapir.on('eating', function(food) {
-      console.log('Stop feeding the tapir ' + food);
+    tapir.on('error', function(error) {
+      console.log('What? ' + error);
     });
+
 
 !SLIDE small
 # Modules, usage
@@ -62,6 +63,7 @@
     @@@javascript
     var module = { exports: {}};
     (function(module, exports){
+        // This is where your code goes
         ...
     })(module, module.exports);
 
@@ -84,7 +86,7 @@
 * ~1800 modules (May, 2011)
 * ~2500 modules (June, 2011)
 * ~3700 modules (Sept, 2011)
-* ~4400 modules (Nov, 2011)
+* ~4400 modules (Oct, 2011)
 
 !SLIDE
 # Notable External Modules
@@ -99,6 +101,7 @@
         , connect.static(__dirname)
         , connect.compiler({enable: ['sass', 'coffeescript']})
         , connect.profiler()
+        , everyauth.middleware()
       ).listen(3000);
     
 

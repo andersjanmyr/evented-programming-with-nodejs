@@ -1,14 +1,19 @@
+// 88.131.106.162
+//
 
-setInterval(function() { console.log('Scandev'); }, 1000);
-setInterval(function() { console.log('on Tour'); }, 2000);
+var log = console.log;
 
-console.log('Hello');
+log('Hello');
+
+setTimeout(function() { log('Scandev'); }, 1000);
+setInterval(function() { log('on Tour'); }, 2000);
+
 
 var net = require('net');
 
 var echoServer = net.createServer(function(socket) {
   socket.on('data', function(data) {
-    console.log(data.toString());
+    log(data.toString());
     socket.write(data);
   });
 });
@@ -30,7 +35,7 @@ var app = express.createServer();
 app.listen(4001);
 
 app.get('/:name', function(req, resp) {
-  console.log(req.params.name + ' from http');
+  log(req.params.name + ' from http');
   resp.end(req.params.name + ' from http\n');
 });
 
@@ -38,7 +43,7 @@ var request = require('request');
 
 setInterval(function() {
   request('http://localhost:4001/fromHttpClient', function(err, response, body) {
-    if (err) console.log(err);
+    if (err) log(err);
   })
 }, 3000);
 
