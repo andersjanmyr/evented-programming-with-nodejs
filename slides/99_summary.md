@@ -14,8 +14,8 @@
 
 * _Blog_, http://goo.gl/W33ko
 * _Slides_, http://goo.gl/bqJD9
-* _Email_, anders.janmyr@jayway.com
-* _Twitter_, @andersjanmyr
+* anders.janmyr@jayway.com
+* @andersjanmyr
 
 
 

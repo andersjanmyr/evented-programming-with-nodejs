@@ -17,12 +17,9 @@
     var util = require('util');
     Tapir = function() {
 
-      this.swim = function(){
-        this.emit("swimming");
-      }
-
       this.eat = function(food) {
-        console.log('Munching '  + food);
+        if (isMeat(food))
+          this.emit('error', new Error(I'm a vegetarian));
         this.emit('eating', food);
       }
 
