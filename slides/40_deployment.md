@@ -23,24 +23,6 @@
     -----> Launching... done, v27
 
 
-!SLIDE small commandline
-# no.de (Joyent)
-    $ ssh node@my-machine.no.de
-    $ nmp install express
-    $ git remote add node node@andersjanmyr.no.de:repo
-    $ git push node master
-    Counting objects: 5, done.
-    Delta compression using up to 2 threads.
-    Compressing objects: 100% (3/3), done.
-    Writing objects: 100% (3/3), 321 bytes, done.
-    Total 3 (delta 2), reused 0 (delta 0)
-    remote: Starting node v0.4.7...
-    remote: Successful
-    To node@andersjanmyr.no.de:repo
-      8f59169..c1177b0  master -> master
-        
-    
-
 
 !SLIDE small commandline
 # Cloud Foundry
