@@ -44,7 +44,7 @@
 
 
 !SLIDE small
-# Modules, usage
+# Modules, writing
     @@@javascript
     // module tapir.js
 
@@ -209,22 +209,6 @@
     });
 
 !SLIDE smaller
-# Logging (Winston, Log-Buddy, Caterpillar, ...)
-
-    @@@javascript
-    // Logging with winston
-    var winston = require('winston');
-
-    winston.info('Hello distributed log files!');        
-
-    // Add a file transport
-    winston.add(winston.transports.File,
-        { filename: 'somefile.log' });
-
-    // Available transports apart from file
-    // Console, Mongo, Riak, ...
-
-!SLIDE smaller
 # DNode Server
 
     @@@javascript
@@ -248,64 +232,6 @@
             console.log('n = ' + n);
         });
     });
-
-!SLIDE smaller
-# Queues (Kue, beanstalk_client, ...)
-
-    @@@javascript
-    // Kue producer
-    var email = jobs.create('email', {
-        title: 'Account renewal required'
-      , to: 'tj@learnboost.com'
-      , template: 'renewal-email'
-    }).delay(minute)
-      .priority('high')
-      .save();
-
-!SLIDE smaller
-# Queues 
-
-    @@@javascript
-    // Kue consumer
-    var kue = require('kue')
-    , jobs = kue.createQueue();
-
-    jobs.process('email', function(job, done){
-      email(job.data.to, done);
-    });
-
-!SLIDE smaller
-# Packaging an NPM Module
-
-    @@@javascript
-    // package.json
-    {
-      "name": "express",
-      "description": "Sinatra inspired web development framework",
-      "version": "2.3.2",
-      "author": "TJ Holowaychuk <tj@vision-media.ca>",
-      "contributors": [ 
-        { "name": "Guillermo Rauch", "email": "rauchg@gmail.com" }
-      ],
-      "dependencies": {
-        "connect": ">= 1.4.0 < 2.0.0",
-        "mime": ">= 0.0.1",
-        "qs": ">= 0.0.6"
-      },
-      "keywords": ["framework", "sinatra", "web", "rest", "restful"],
-      "repository": "git://github.com/visionmedia/express",
-      "main": "index",
-      "bin": { "express": "./bin/express" }
-    }
-      
-
-
-
-
-
-
-
-
 
 
 
