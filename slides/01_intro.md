@@ -11,9 +11,10 @@
 
 !SLIDE bullets small
 # Node?
+
+* Created by Ryan Dahl
 * A set of libraries on top of Google V8
 * Focused on doing networking right, Async IO
-* Using a single thread
 
 !SLIDE
 

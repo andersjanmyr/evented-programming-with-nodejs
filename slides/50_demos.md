@@ -1,6 +1,7 @@
 !SLIDE 
 
-# Eight Bit Beats
+# Demo
+## Eight Bit Beats
   
   [http://eightbitbeats.com/](http://eightbitbeats.com/)
 
