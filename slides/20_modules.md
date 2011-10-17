@@ -10,24 +10,6 @@
 * events (EventEmitter)
 
 !SLIDE smaller code
-# EventEmitter
-
-    @@@javascript
-    var events = require('events');
-    var util = require('util');
-    Tapir = function() {
-
-      this.eat = function(food) {
-        if (isMeat(food))
-          this.emit('error', new Error("I'm a vegetarian"));
-        this.emit('eating', food);
-      }
-
-    };
-    // Set EventEmitter as Eventers prototype
-    util.inherits(Eventer, events.EventEmitter);
-
-!SLIDE smaller code
 # EventEmitter, usage
 
     @@@javascript
@@ -41,6 +23,25 @@
       console.log('What? ' + error);
     });
 
+!SLIDE smaller code
+# EventEmitter
+
+    @@@javascript
+    var events = require('events');
+    var util = require('util');
+    Tapir = function() {
+
+      this.eat = function(food) {
+        if (isMeat(food))
+          this.emit('error', new Error("I'm a vegetarian"));
+        else
+          this.emit('eating', food);
+      }
+
+    };
+    // Set EventEmitter as Tapirs prototype
+    util.inherits(Tapir, events.EventEmitter);
+
 
 !SLIDE small
 # Modules, usage
@@ -51,7 +52,7 @@
     var util = require('util');
 
     function eat(food) {
-        util.log('eating '+ food);
+      util.log('eating '+ food);
     }
     
     // export a function
@@ -61,11 +62,15 @@
 #  Modules, how?
 
     @@@javascript
+    var tapir = require('tapir');
+
+    // This happens inside require
     var module = { exports: {}};
     (function(module, exports){
         // This is where your code goes
         ...
     })(module, module.exports);
+
 
 
 !SLIDE commandline
@@ -91,19 +96,6 @@
 !SLIDE
 # Notable External Modules
 
-!SLIDE smaller
-# Connect
-## Rack for Node (middleware framework)
-
-    @@@javascript
-    connect(
-          connect.logger()
-        , connect.static(__dirname)
-        , connect.compiler({enable: ['sass', 'coffeescript']})
-        , connect.profiler()
-        , everyauth.middleware()
-      ).listen(3000);
-    
 
 !SLIDE smaller
 # Express
@@ -117,10 +109,23 @@
       res.redirect('/index.html');
     });
 
-    app.post('/quiz', function(req, res) {
-      res.send(quiz.create().id.toString());
+    app.put('/animals/:id', function(req, res) {
+      res.send(Animal.update(req.params.id));
     });
 
+!SLIDE smaller
+# Connect
+## Rack for Node (middleware framework)
+
+    @@@javascript
+    connect(
+          connect.logger()
+        , connect.static(__dirname)
+        , connect.compiler({enable: ['sass', 'coffeescript']})
+        , connect.profiler()
+        , everyauth.middleware()
+      ).listen(3000);
+    
 
 !SLIDE bullets
 # Templating Engines
