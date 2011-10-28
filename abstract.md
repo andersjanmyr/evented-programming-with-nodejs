@@ -1,4 +1,4 @@
-## Asynchronous Programming with Node.js
+## Evented Programming with Node.js
 
 Node.js is one of the hottest things in programming right now. What is
 it and why is it hot? 
