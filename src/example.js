@@ -1,55 +1,59 @@
 "use strict";
-var ip = '212.247.10.33';
+
+var ip = '213.50.11.10';
 
 var log = console.log;
 
 log('Hello');
 
 setTimeout(function() {
-  log('Scandev');
-}, 2000);
+    log('Software Passion Summit');
+}, 5000);
 
 setInterval(function() {
-  log('on Tour');
-}, 3000);
+    log('Software Passion Summit again');
+}, 1000);
 
 var net = require('net');
 
 var server = net.createServer(function(socket) {
-  socket.on('data', function(data) {
-    log(data.toString());
-    socket.write(data);
-  });
+    socket.on('data', function(data) {
+        log('Data received: ' + data.toString());
+        socket.write(data);
+    });
 });
 
 server.listen(4000);
 
-
-var client = net.createConnection(4000);
-
 setInterval(function() {
-  client.on('connect', function() {
-    log('Client');
-    client.write('Tapir');
-  });
-  
-}, 1500);
-
+    var client = net.connect(4000);
+    client.on('connect', function() {
+        log('Client Connected');
+        client.write('client calling');
+    }).on('data', function(data) {
+        log('Client Data: ' + data);
+        client.end();
+    });
+}, 2000);
 
 var express = require('express');
 
 var app = express.createServer();
-
 app.listen(4001);
 
 app.get('/', function(req, resp) {
-  log('/');
-  resp.end('Hello From Express');
+    log('In the root handler');
+    resp.end('I am ROOT\n');
+});
+
+app.get('/tapir/:name', function(req, resp) {
+    log('Hello ' + req.params.name);
+    resp.end('I am the tapir named ' + req.params['name']);
 });
 
 var request = require('request');
 
 setInterval(function() {
-  request('http://localhost:4001/');
-}, 1000);
+   request('http://localhost:4001/tapir/lennart'); 
+}, 500);
 
