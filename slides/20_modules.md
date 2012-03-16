@@ -89,9 +89,8 @@
 
 * http://search.npmjs.org
 * ~1800 modules (May, 2011)
-* ~2500 modules (June, 2011)
 * ~3700 modules (Sept, 2011)
-* ~4400 modules (Oct, 2011)
+* ~8000 modules (March, 2012)
 
 !SLIDE
 # Notable External Modules
@@ -126,16 +125,24 @@
         , everyauth.middleware()
       ).listen(3000);
     
+!SLIDE smaller
+# Request
+## HTTP Client
+    @@@javascript
+    var request = require('request');
+    request('http://anders.janmyr.com',
+            function(err, resp, body) {
+      if (!err && resp.statusCode === 200)
+          console.log(body);
+    })
 
 !SLIDE bullets
 # Templating Engines
 * Jade    - Haml with JS flavor
-* haml.js - Haml for Node
 * Mu      - Mustache for Node
-* jqtpl   - jQuery Templates for Node
 * ejs     - Embedded Javascript
 * eco     - Embedded Coffeescript
-* +30 others
+* +40 others
 
 !SLIDE small
 # Jade
@@ -230,6 +237,7 @@
     dnode.connect(5050, function (remote) {
         remote.zing(66, function (n) {
             console.log('n = ' + n);
+            // Prints n = 6600;
         });
     });
 

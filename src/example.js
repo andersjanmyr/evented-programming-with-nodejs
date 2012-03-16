@@ -1,40 +1,39 @@
 "use strict";
-
 var ip = '213.50.11.10';
+
 
 var log = console.log;
 
-log('Hello');
+log('hello');
 
 setTimeout(function() {
     log('Software Passion Summit');
-}, 5000);
+}, 1000);
+
 
 setInterval(function() {
-    log('Software Passion Summit again');
-}, 1000);
+    log('again');
+}, 5000);
 
 var net = require('net');
 
 var server = net.createServer(function(socket) {
     socket.on('data', function(data) {
-        log('Data received: ' + data.toString());
+        log(data.toString());
         socket.write(data);
     });
 });
 
 server.listen(4000);
 
+
 setInterval(function() {
     var client = net.connect(4000);
     client.on('connect', function() {
-        log('Client Connected');
-        client.write('client calling');
-    }).on('data', function(data) {
-        log('Client Data: ' + data);
-        client.end();
+        log('Client connected');
+        client.end('Client');
     });
-}, 2000);
+}, 3000);
 
 var express = require('express');
 
@@ -42,18 +41,18 @@ var app = express.createServer();
 app.listen(4001);
 
 app.get('/', function(req, resp) {
-    log('In the root handler');
-    resp.end('I am ROOT\n');
+    log('ROOT called');
+    resp.end('ROOT');
 });
 
 app.get('/tapir/:name', function(req, resp) {
-    log('Hello ' + req.params.name);
-    resp.end('I am the tapir named ' + req.params['name']);
+    log('A tapir named ' + req.params.name);
+    resp.end('Hello ' + req.params.name);
 });
 
-var request = require('request');
 
+var request = require('request');
 setInterval(function() {
-   request('http://localhost:4001/tapir/lennart'); 
-}, 500);
+    request('http://localhost:4001/tapir/Lennart');
+}, 1000);
 

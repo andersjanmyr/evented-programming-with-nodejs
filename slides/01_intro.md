@@ -71,6 +71,9 @@ lady. "But it's turtles all the way down!"
 
 <img src='/image/slides/turtles-all-the-way-down.png'></img>
 
+### *Atwood's Law*: any application that can be written
+### in JavaScript, will eventually be written in JavaScript.
+
 
 
 

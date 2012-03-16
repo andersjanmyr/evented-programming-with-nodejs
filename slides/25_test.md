@@ -10,35 +10,20 @@
     assert.notEqual(actual, expected, [message])
     assert.deepEqual(actual, expected, [message])
     assert.strictEqual(actual, expected, [message])
-    assert.throws(block, [error], [message])
-    assert.doesNotThrow(block, [error], [message])
     assert.ifError(value)
     assert.fail(actual, expected, message, operator)
+    assert.doesNotThrow(block, [error], [message])
+    assert.throws(block, [error], [message])
 
 
-!SLIDE smaller
-# Assert Example
-
-    @@@javascript
-    // assert.throws(function, regexp)
-    assert.throws(
-      function() { throw new Error("Wrong value"); },
-      /value/
-    );
-    
-
-
-
-!SLIDE bullets smaller
+!SLIDE bullets small
 # Test Frameworks
 
 * nodeunit
-* expresso
 * jasmine
-* should.js
 * vows
 * qunit
-* +40 others
+* +50 others
 
 !SLIDE smaller
 # NodeUnit
