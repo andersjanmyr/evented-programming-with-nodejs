@@ -241,6 +241,15 @@
         });
     });
 
+!SLIDE smaller bullets
+# Tower.js
+
+* MongoDB (database)
+* Redis (background jobs)
+* CoffeeScript
+* Stylus
+* Jasmine (tests)
+* jQuery
 
 
 
