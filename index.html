@@ -86,12 +86,16 @@
 
 <h3>http://anders.janmyr.com</h3>
 
-<h3>@andersjanmyr</h3>
-</div>
-</div><div class="slide" data-transition="none"><div class="content" ref="slides/01_intro/2">
-<h1>What?</h1>
-</div>
-</div><div class="slide" data-transition="none"><div class="content bullets small" ref="slides/01_intro/3">
+<h3>@andersjanmyr</h3></div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/01_intro/2">
+<h1>LiveWire</h1>
+
+<p><img src="./file/slides/livewire.gif" alt=""/></p></div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/01_intro/3">
+<p><img src="./file/slides/static_typing_is_the_root_of_all_evil.png" alt=""/></p></div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/01_intro/4">
+<p><img src="./file/slides/dynamic_for_the_win.png" alt=""/></p></div>
+</div><div class="slide" data-transition="none"><div class="content bullets small" ref="slides/01_intro/5">
 <h1>Node?</h1>
 
 <ul>
@@ -99,43 +103,37 @@
 <li>A set of libraries on top of Google V8</li>
 <li>Focused on doing networking right</li>
 </ul>
-
 </div>
-</div><div class="slide" data-transition="none"><div class="content" ref="slides/01_intro/4">
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/01_intro/6">
 <h1>Evented?</h1>
 
 <h2>Asynchronous</h2>
 
 <h2>Event Driven</h2>
 
-<h2>Callbacks</h2>
-</div>
-</div><div class="slide" data-transition="none"><div class="content code" ref="slides/01_intro/5">
+<h2>Callbacks</h2></div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="slides/01_intro/7">
 <h1>The Event Loop</h1>
 
 <pre class="sh_javascript"><code>while(somethingIsGoingOn()) {
     readyChannels = select(ioChannels);
     for (channel in readyChannels) 
         performIO(channel);
-}</code></pre>
-</div>
-</div><div class="slide" data-transition="none"><div class="content code" ref="slides/01_intro/6">
+}</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="slides/01_intro/8">
 <h1>The Real Event Loop</h1>
 
 <pre class="sh_javascript"><code>// The Real Event Loop is implicit.
-// The code is automatically inside the loop.</code></pre>
-</div>
-</div><div class="slide" data-transition="none"><div class="content center" ref="slides/01_intro/7">
+// The code is automatically inside the loop.</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/01_intro/9">
 <h1>Why Node?</h1>
 
-<p><img src="./file/slides/why.jpg" width="590" height="590" alt="Why"/></p>
-</div>
-</div><div class="slide" data-transition="none"><div class="content center" ref="slides/01_intro/8">
+<p><img src="./file/slides/why.jpg" alt="Why"/></p></div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/01_intro/10">
 <h1>Cool</h1>
 
-<p><img src="./file/slides/Cool.jpg" width="453" height="504" alt="Cool"/></p>
-</div>
-</div><div class="slide" data-transition="none"><div class="content center" ref="slides/01_intro/9">
+<p><img src="./file/slides/Cool.jpg" alt="Cool"/></p></div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/01_intro/11">
 <h1>Javascript</h1>
 
 <p class="notes">Bertrand Russell once gave a public lecture on astronomy. He
@@ -149,28 +147,27 @@ standing on?" "You're very clever, young man, very clever," said the old
 lady. "But it's turtles all the way down!"</p>
 
 <p><img src="/image/slides/turtles-all-the-way-down.png"/></p>
-</div>
+
+<h3><em>Atwood's Law</em>: any application that can be written</h3>
+
+<h3>in JavaScript, will eventually be written in JavaScript.</h3></div>
 </div><div class="slide" data-transition="none"><div class="content center" ref="slides/02_evented/1">
 <h1>Speed</h1>
 
-<p><img src="./file/slides/road-runner.jpg" width="446" height="336" alt="Speed"/></p>
-</div>
+<p><img src="./file/slides/road-runner.jpg" alt="Speed"/></p></div>
 </div><div class="slide" data-transition="none"><div class="content" ref="slides/02_evented/2">
-<h1>Threads vs Evented Programming</h1>
-</div>
+<h1>Threads vs Evented Programming</h1></div>
 </div><div class="slide" data-transition="none"><div class="content code" ref="slides/02_evented/3">
 <h1>Threaded code</h1>
 
 <pre class="sh_javascript"><code>var result = db.query("select * from T");
-// Use result</code></pre>
-</div>
+// Use result</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content code small" ref="slides/02_evented/4">
 <h1>Evented Code</h1>
 
 <pre class="sh_javascript"><code>db.query("select * from T", function (result) {
     // Use result
-});</code></pre>
-</div>
+});</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content bullets" ref="slides/02_evented/5">
 <h1>Threads</h1>
 
@@ -180,7 +177,6 @@ lady. "But it's turtles all the way down!"</p>
 <li>Stack</li>
 <li>Context Switching</li>
 </ul>
-
 </div>
 </div><div class="slide" data-transition="none"><div class="content bullets" ref="slides/02_evented/6">
 <h1>Evented</h1>
@@ -191,30 +187,25 @@ lady. "But it's turtles all the way down!"</p>
 <li>No Stack</li>
 <li>Explicit Task Switching</li>
 </ul>
-
 </div>
 </div><div class="slide" data-transition="none"><div class="content center" ref="slides/02_evented/7">
-<p><img src="./file/slides/nginx-apache-reqs-sec.png" width="644" height="309" alt="nginx apache reqs"/></p>
+<p><img src="./file/slides/nginx-apache-reqs-sec.png" alt="nginx apache reqs"/></p>
 
 <h1>concurrency &#xD7; requests/s</h1>
 
-<p>Source: <a href="http://blog.webfaction.com/a-little-holiday-present">A little holiday present: 10,000 reqs/sec with Nginx!</a></p>
-</div>
+<p>Source: <a href="http://blog.webfaction.com/a-little-holiday-present">A little holiday present: 10,000 reqs/sec with Nginx!</a></p></div>
 </div><div class="slide" data-transition="none"><div class="content center" ref="slides/02_evented/8">
-<p><img src="./file/slides/nginx-apache-memory.png" width="645" height="315" alt="nginx apache memory"/></p>
+<p><img src="./file/slides/nginx-apache-memory.png" alt="nginx apache memory"/></p>
 
 <h1>concurrency &#xD7; memory</h1>
 
-<p>Source: <a href="http://blog.webfaction.com/a-little-holiday-present">A little holiday present: 10,000 reqs/sec with Nginx!</a></p>
-</div>
+<p>Source: <a href="http://blog.webfaction.com/a-little-holiday-present">A little holiday present: 10,000 reqs/sec with Nginx!</a></p></div>
 </div><div class="slide" data-transition="none"><div class="content" ref="slides/02_evented/9">
 <h1>Single-threaded event loop</h1>
 
-<h1>requires non-blocking IO</h1>
-</div>
+<h1>requires non-blocking IO</h1></div>
 </div><div class="slide" data-transition="none"><div class="content" ref="slides/02_evented/10">
-<h1>Most libraries aren't</h1>
-</div>
+<h1>Most libraries aren't</h1></div>
 </div><div class="slide" data-transition="none"><div class="content bullets" ref="slides/02_evented/11">
 <h1>Alternatives</h1>
 
@@ -225,7 +216,6 @@ lady. "But it's turtles all the way down!"</p>
 <li>Goliath (Ruby, 2011)</li>
 <li>Async Framework (.Net, 2011)</li>
 </ul>
-
 </div>
 </div><div class="slide" data-transition="none"><div class="content commandline" ref="slides/10_start/1">
 <h1>Get Started</h1>
@@ -239,19 +229,15 @@ lady. "But it's turtles all the way down!"</p>
 Please add /usr/local/lib/node to your NODE_PATH environment variable to have node libraries picked up.
 ==&gt; Summary
 /usr/local/Cellar/node/0.4.7: 72 files, 7.5M, built in 1.2 minutes
-</code></code></pre>
-</div>
+</code></code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content" ref="slides/10_start/2">
 <h1>Demo</h1>
 
-<h2><a href="http://whatismyip.com">http://whatismyip.com</a></h2>
-</div>
+<h2><a href="http://whatismyip.com">http://whatismyip.com</a></h2></div>
 </div><div class="slide" data-transition="none"><div class="content" ref="slides/15_idioms/1">
-<h1>Idioms for Node</h1>
-</div>
+<h1>Idioms for Node</h1></div>
 </div><div class="slide" data-transition="none"><div class="content" ref="slides/15_idioms/2">
-<h1>Callbacks</h1>
-</div>
+<h1>Callbacks</h1></div>
 </div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/15_idioms/3">
 <h1>Fall Through (callbacks)</h1>
 
@@ -263,8 +249,7 @@ function doSomething(response, callback) {
     }
     callback(null, result);
   });
-}</code></pre>
-</div>
+}</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/15_idioms/4">
 <h1>Fall Through (callbacks)</h1>
 
@@ -276,8 +261,7 @@ function doSomething(response, callback) {
     }
     return callback(null, result);
   });
-}</code></pre>
-</div>
+}</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/15_idioms/5">
 <h1>Exceptions</h1>
 
@@ -287,8 +271,7 @@ function doSomething(response, callback) {
 
   // Everything is OK
   return callback(null, 'row inserted');
-}</code></pre>
-</div>
+}</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/15_idioms/6">
 <h1>Parallel Execution</h1>
 
@@ -299,8 +282,7 @@ function doSomething(response, callback) {
       if (--left == 0) callback();
     });
   });
-};</code></pre>
-</div>
+};</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content execute smaller" ref="slides/15_idioms/7">
 <h1>Call doAll</h1>
 
@@ -313,8 +295,7 @@ doAll([
     setTimeout(function() {r.push(2); callback();}, 3000 )},
   function(callback) { 
     setTimeout(function() {r.push(3); callback();}, 1000 )}
-  ], function() { alert(r); });</code></pre>
-</div>
+  ], function() { alert(r); });</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/15_idioms/8">
 <h1>Sequencing</h1>
 
@@ -330,8 +311,7 @@ doAll([
       });
     }
     iterate();
-};</code></pre>
-</div>
+};</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/15_idioms/9">
 <h1>Sequencing</h1>
 
@@ -349,8 +329,7 @@ doAll([
       });
     }
     iterate();
-};</code></pre>
-</div>
+};</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content execute smaller" ref="slides/15_idioms/10">
 <h1>Call doInSequence</h1>
 
@@ -363,8 +342,7 @@ doInSequence([
     setTimeout(function() {r.push(2); callback();}, 3000 )},
   function(callback) { 
     setTimeout(function() {r.push(3); callback();}, 1000 )}
-  ], function() { alert(r); });</code></pre>
-</div>
+  ], function() { alert(r); });</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/15_idioms/11">
 <h1>async</h1>
 
@@ -384,11 +362,9 @@ async.parallel([
 async.series([
     function(){ ... },
     function(){ ... }
-], callback);</code></pre>
-</div>
+], callback);</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content" ref="slides/20_modules/1">
-<h1>Modules</h1>
-</div>
+<h1>Modules</h1></div>
 </div><div class="slide" data-transition="none"><div class="content bullets" ref="slides/20_modules/2">
 <h1>Modules, builtin</h1>
 
@@ -399,7 +375,6 @@ async.series([
 <li>fs (readFile, readdir, rename, ...)</li>
 <li>events (EventEmitter)</li>
 </ul>
-
 </div>
 </div><div class="slide" data-transition="none"><div class="content smaller code" ref="slides/20_modules/3">
 <h1>EventEmitter, usage</h1>
@@ -412,8 +387,7 @@ tapir.on('eating', function(food) {
 
 tapir.on('error', function(error) {
   console.log('What? ' + error);
-});</code></pre>
-</div>
+});</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content smaller code" ref="slides/20_modules/4">
 <h1>EventEmitter</h1>
 
@@ -430,8 +404,7 @@ Tapir = function() {
 
 };
 // Set EventEmitter as Tapirs prototype
-util.inherits(Tapir, events.EventEmitter);</code></pre>
-</div>
+util.inherits(Tapir, events.EventEmitter);</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content small" ref="slides/20_modules/5">
 <h1>Modules, writing</h1>
 
@@ -445,8 +418,7 @@ function eat(food) {
 }
 
 // export a function
-exports.eat = eat;</code></pre>
-</div>
+exports.eat = eat;</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content small" ref="slides/20_modules/6">
 <h1>Modules, how?</h1>
 
@@ -457,8 +429,7 @@ var module = { exports: {}};
 (function(module, exports){
     // This is where your code goes
     ...
-})(module, module.exports);</code></pre>
-</div>
+})(module, module.exports);</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content commandline" ref="slides/20_modules/7">
 <h1>npm, Node Package Manager</h1>
 
@@ -469,23 +440,19 @@ connect@1.4.0 /usr/local/lib/node_modules/express/node_modules/connect
 qs@0.1.0 /usr/local/lib/node_modules/express/node_modules/qs
 /usr/local/bin/express -&gt; /usr/local/lib/node_modules/express/bin/express
 express@2.3.2 /usr/local/lib/node_modules/express
-</code></code></pre>
-</div>
+</code></code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content bullets" ref="slides/20_modules/8">
 <h1>Node Module Repository</h1>
 
 <ul>
 <li>http://search.npmjs.org</li>
 <li>~1800 modules (May, 2011)</li>
-<li>~2500 modules (June, 2011)</li>
 <li>~3700 modules (Sept, 2011)</li>
-<li>~4400 modules (Oct, 2011)</li>
+<li>~8000 modules (March, 2012)</li>
 </ul>
-
 </div>
 </div><div class="slide" data-transition="none"><div class="content" ref="slides/20_modules/9">
-<h1>Notable External Modules</h1>
-</div>
+<h1>Notable External Modules</h1></div>
 </div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/20_modules/10">
 <h1>Express</h1>
 
@@ -500,8 +467,7 @@ app.get('/', function(req, req) {
 
 app.put('/animals/:id', function(req, res) {
   res.send(Animal.update(req.params.id));
-});</code></pre>
-</div>
+});</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/20_modules/11">
 <h1>Connect</h1>
 
@@ -513,23 +479,30 @@ app.put('/animals/:id', function(req, res) {
     , connect.compiler({enable: ['sass', 'coffeescript']})
     , connect.profiler()
     , everyauth.middleware()
-  ).listen(3000);</code></pre>
-</div>
-</div><div class="slide" data-transition="none"><div class="content bullets" ref="slides/20_modules/12">
+  ).listen(3000);</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/20_modules/12">
+<h1>Request</h1>
+
+<h2>HTTP Client</h2>
+
+<pre class="sh_javascript"><code>var request = require('request');
+request('http://anders.janmyr.com',
+        function(err, resp, body) {
+  if (!err &amp;&amp; resp.statusCode === 200)
+      console.log(body);
+})</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="slides/20_modules/13">
 <h1>Templating Engines</h1>
 
 <ul>
 <li>Jade    - Haml with JS flavor</li>
-<li>haml.js - Haml for Node</li>
 <li>Mu      - Mustache for Node</li>
-<li>jqtpl   - jQuery Templates for Node</li>
 <li>ejs     - Embedded Javascript</li>
 <li>eco     - Embedded Coffeescript</li>
-<li>+30 others</li>
+<li>+40 others</li>
 </ul>
-
 </div>
-</div><div class="slide" data-transition="none"><div class="content small" ref="slides/20_modules/13">
+</div><div class="slide" data-transition="none"><div class="content small" ref="slides/20_modules/14">
 <h1>Jade</h1>
 
 <pre class="sh_python"><code>!!! 5
@@ -546,9 +519,8 @@ html(lang="en")
       - if (youAreUsingJade)
         p You are amazing
       - else
-        p Get on it!</code></pre>
-</div>
-</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/20_modules/14">
+        p Get on it!</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/20_modules/15">
 <h1>Socket.IO</h1>
 
 <h2>Websockets and more</h2>
@@ -565,9 +537,8 @@ socket.on('connection', function(client){
   // new client is here!
   client.on('message', function(){ &#x2026; })
   client.on('disconnect', function(){ &#x2026; })
-});</code></pre>
-</div>
-</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/20_modules/15">
+});</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/20_modules/16">
 <h1>DB (MySql, Postgres, Oracle)</h1>
 
 <pre class="sh_javascript"><code>client.query(
@@ -579,9 +550,8 @@ socket.on('connection', function(client){
     console.log(fields);
     client.end();
   }
-);</code></pre>
-</div>
-</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/20_modules/16">
+);</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/20_modules/17">
 <h1>NOSQL (MongoDB, CouchDB, Redis, Cassandra, Memcached, Hadoop, ...)</h1>
 
 <pre class="sh_javascript"><code>// MongoDB
@@ -594,9 +564,8 @@ client.open(function (error, client) {
   coll.find({}, {limit:10}).toArray(function(err, docs) {
     console.dir(docs);
   });
-});</code></pre>
-</div>
-</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/20_modules/17">
+});</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/20_modules/18">
 <h1>DNode Server</h1>
 
 <pre class="sh_javascript"><code>var dnode = require('dnode');
@@ -606,9 +575,8 @@ var server = dnode({
     callback(n * 100);
   }
 });
-server.listen(5050);</code></pre>
-</div>
-</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/20_modules/18">
+server.listen(5050);</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/20_modules/19">
 <h1>DNode Client</h1>
 
 <pre class="sh_javascript"><code>var dnode = require('dnode');
@@ -616,12 +584,23 @@ server.listen(5050);</code></pre>
 dnode.connect(5050, function (remote) {
     remote.zing(66, function (n) {
         console.log('n = ' + n);
+        // Prints n = 6600;
     });
-});</code></pre>
+});</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content smaller bullets" ref="slides/20_modules/20">
+<h1>Tower.js</h1>
+
+<ul>
+<li>MongoDB (database)</li>
+<li>Redis (background jobs)</li>
+<li>CoffeeScript</li>
+<li>Stylus</li>
+<li>Jasmine (tests)</li>
+<li>jQuery</li>
+</ul>
 </div>
 </div><div class="slide" data-transition="none"><div class="content" ref="slides/25_test/1">
-<h1>Testing with Node</h1>
-</div>
+<h1>Testing with Node</h1></div>
 </div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/25_test/2">
 <h1>Assert</h1>
 
@@ -632,35 +611,22 @@ assert.equal(actual, expected, [message])
 assert.notEqual(actual, expected, [message])
 assert.deepEqual(actual, expected, [message])
 assert.strictEqual(actual, expected, [message])
-assert.throws(block, [error], [message])
-assert.doesNotThrow(block, [error], [message])
 assert.ifError(value)
-assert.fail(actual, expected, message, operator)</code></pre>
-</div>
-</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/25_test/3">
-<h1>Assert Example</h1>
-
-<pre class="sh_javascript"><code>// assert.throws(function, regexp)
-assert.throws(
-  function() { throw new Error("Wrong value"); },
-  /value/
-);</code></pre>
-</div>
-</div><div class="slide" data-transition="none"><div class="content bullets smaller" ref="slides/25_test/4">
+assert.fail(actual, expected, message, operator)
+assert.doesNotThrow(block, [error], [message])
+assert.throws(block, [error], [message])</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content bullets small" ref="slides/25_test/3">
 <h1>Test Frameworks</h1>
 
 <ul>
 <li>nodeunit</li>
-<li>expresso</li>
 <li>jasmine</li>
-<li>should.js</li>
 <li>vows</li>
 <li>qunit</li>
-<li>+40 others</li>
+<li>+50 others</li>
 </ul>
-
 </div>
-</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/25_test/5">
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/25_test/4">
 <h1>NodeUnit</h1>
 
 <pre class="sh_javascript"><code>// ./test/test-doubled.js
@@ -669,9 +635,8 @@ var doubled = require('../lib/doubled');
 exports['calculate'] = function (test) {
     test.equal(doubled.calculate(2), 4);
     test.done();
-};</code></pre>
-</div>
-</div><div class="slide" data-transition="none"><div class="content commandline" ref="slides/25_test/6">
+};</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="slides/25_test/5">
 <h1>NodeUnit (running)</h1>
 
 <pre><code><code class="command">$ nodeunit test</code>
@@ -680,9 +645,8 @@ test-doubled
 &#x2714; calculate
 
 OK: 1 assertions (3ms)
-</code></code></pre>
-</div>
-</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/25_test/7">
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/25_test/6">
 <h1>NodeUnit (async)</h1>
 
 <pre class="sh_javascript"><code>exports['read a number'] = function (test) {
@@ -702,13 +666,11 @@ OK: 1 assertions (3ms)
     doubled.read();
     // Simulate 12 entered on stdin
     ev.emit('data', '12');
-};</code></pre>
-</div>
+};</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content center" ref="slides/29_tools/1">
 <h1>Tools</h1>
 
-<p><img src="./file/slides/tools.jpg" width="480" height="403" alt="Tools"/></p>
-</div>
+<p><img src="./file/slides/tools.jpg" alt="Tools"/></p></div>
 </div><div class="slide" data-transition="none"><div class="content commandline" ref="slides/29_tools/2">
 <h1>Reloaders</h1>
 
@@ -725,11 +687,9 @@ OK: 1 assertions (3ms)
 <code class="command"># forever supervisor</code>
 <code class="command">$ npm install forever</code>
 <code class="command">$ npm install supervisor</code>
-</code></pre>
-</div>
+</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content" ref="slides/29_tools/3">
-<h1>Debugging</h1>
-</div>
+<h1>Debugging</h1></div>
 </div><div class="slide" data-transition="none"><div class="content commandline" ref="slides/29_tools/4">
 <h1>node debug</h1>
 
@@ -750,8 +710,7 @@ var echo = net.createServer(function(socket) {
       socket.write(data);
   });
 });
-</code></code></pre>
-</div>
+</code></code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content commandline" ref="slides/29_tools/5">
 <h1>node-inspector</h1>
 
@@ -760,16 +719,13 @@ var echo = net.createServer(function(socket) {
 
 </code><code class="command">$ node --debug server.js</code>
 <code class="result">debugger listening on port 5858
-</code></code></pre>
-</div>
+</code></code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content center" ref="slides/29_tools/6">
 <h1>node-inspector</h1>
 
-<p><img src="./file/slides/nodeJS-Inspector.png" width="840" height="580" alt="node-inspector"/></p>
-</div>
+<p><img src="./file/slides/nodeJS-Inspector.png" alt="node-inspector"/></p></div>
 </div><div class="slide" data-transition="none"><div class="content" ref="slides/40_deployment/1">
-<h1>Deployment</h1>
-</div>
+<h1>Deployment</h1></div>
 </div><div class="slide" data-transition="none"><div class="content small commandline" ref="slides/40_deployment/2">
 <h1>Heroku</h1>
 
@@ -789,8 +745,7 @@ var echo = net.createServer(function(socket) {
 -----&gt; Installing dependencies with npm 1.0.8
    Procfile declares types -&gt; web
 -----&gt; Launching... done, v27
-</code></code></pre>
-</div>
+</code></code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content small commandline" ref="slides/40_deployment/3">
 <h1>Cloud Foundry</h1>
 
@@ -815,8 +770,7 @@ Uploading Application:
 Push Status: OK
 Staging Application: OK
 Starting Application: ........OK
-</code></code></pre>
-</div>
+</code></code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content bullets" ref="slides/40_deployment/4">
 <h1>Hosting yourself</h1>
 
@@ -825,15 +779,13 @@ Starting Application: ........OK
 <li>Listen for errors</li>
 <li>Use a process monitor (forever, supervisor, god, ...)</li>
 </ul>
-
 </div>
 </div><div class="slide" data-transition="none"><div class="content" ref="slides/50_demos">
 <h1>Demo</h1>
 
 <h2>Eight Bit Beats</h2>
 
-<p>  <a href="http://eightbitbeats.com/">http://eightbitbeats.com/</a></p>
-</div>
+<p>  <a href="http://eightbitbeats.com/">http://eightbitbeats.com/</a></p></div>
 </div><div class="slide" data-transition="none"><div class="content bullets" ref="slides/99_summary">
 <h1>Thank You!</h1>
 
@@ -843,7 +795,6 @@ Starting Application: ........OK
 <li>anders.janmyr@jayway.com</li>
 <li>@andersjanmyr</li>
 </ul>
-
 </div>
 </div></div>
 
