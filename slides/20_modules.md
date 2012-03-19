@@ -39,7 +39,7 @@
       }
 
     };
-    // Set EventEmitter as Tapirs prototype
+    // Set EventEmitter as Tapir's prototype
     util.inherits(Tapir, events.EventEmitter);
 
 
@@ -242,7 +242,7 @@
     });
 
 !SLIDE smaller bullets
-# Tower.js
+# Tower.js (Rails for Node)
 
 * MongoDB (database)
 * Redis (background jobs)

@@ -60,7 +60,7 @@
 !SLIDE execute smaller
 # Call doAll
     @@@javascript
-    // What does this code do?
+    // How long does this code take?
     var r = [];
     doAll([
       function(callback) { 
@@ -118,7 +118,7 @@
 !SLIDE execute smaller
 # Call doInSequence
     @@@javascript
-    // What does this code do?;
+    // How long does this code take?
     var r = [];
     doInSequence([
       function(callback) { 

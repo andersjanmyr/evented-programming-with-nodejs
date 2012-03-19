@@ -1,19 +1,18 @@
 "use strict";
-var ip = '213.50.11.10';
 
+var ip = '95.199.140.25';
 
 var log = console.log;
 
-log('hello');
+log('Hello: ' + ip);
 
 setTimeout(function() {
     log('Software Passion Summit');
-}, 1000);
-
+}, 3000);
 
 setInterval(function() {
     log('again');
-}, 5000);
+}, 8000);
 
 var net = require('net');
 
@@ -23,36 +22,32 @@ var server = net.createServer(function(socket) {
         socket.write(data);
     });
 });
-
 server.listen(4000);
 
-
 setInterval(function() {
-    var client = net.connect(4000);
+var client = net.connect(4000);
     client.on('connect', function() {
         log('Client connected');
-        client.end('Client');
+        client.end('Sloth');
     });
-}, 3000);
+}, 6000);
 
 var express = require('express');
-
 var app = express.createServer();
 app.listen(4001);
 
 app.get('/', function(req, resp) {
-    log('ROOT called');
-    resp.end('ROOT');
+    log('/ called');
+    resp.end('responding to /\n');
 });
 
 app.get('/tapir/:name', function(req, resp) {
-    log('A tapir named ' + req.params.name);
-    resp.end('Hello ' + req.params.name);
+    log('/tapir called with ' + req.params.name);
+    resp.end('responding to /tapir with ' + req.params.name);
 });
 
-
-var request = require('request');
 setInterval(function() {
-    request('http://localhost:4001/tapir/Lennart');
+    var request = require('request');
+    request('http://localhost:4001/tapir/Arne');
 }, 1000);
 
