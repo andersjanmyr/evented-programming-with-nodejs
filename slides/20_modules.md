@@ -251,5 +251,17 @@
 * Jasmine (tests)
 * jQuery
 
+!SLIDE bullets
+# [Trello](https://trello.com/board/demo-board/4f6851dc9290fac27611d0ae)
+
+* Node.js
+* Express
+* MongoDB
+
+* jQuery
+* Backbone
+* Mustache
+
+
 
 
