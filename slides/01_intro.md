@@ -4,19 +4,10 @@
 ### http://anders.janmyr.com
 ### @andersjanmyr
 
-!SLIDE center
-# LiveWire 
-![](livewire.gif)
-
-!SLIDE center
-![](static_typing_is_the_root_of_all_evil.png)
-
-!SLIDE center
-![](dynamic_for_the_win.png)
-
 !SLIDE bullets small
 # Node?
 
+* Server Side Javascript
 * Created by Ryan Dahl
 * A set of libraries on top of Google V8
 * Focused on doing networking right
@@ -24,8 +15,8 @@
 !SLIDE 
 # Evented?
 
-## Asynchronous
 ## Event Driven
+## Asynchronous
 ## Callbacks
 
 !SLIDE code
