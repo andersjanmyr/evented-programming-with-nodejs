@@ -87,32 +87,25 @@
 <h3>http://anders.janmyr.com</h3>
 
 <h3>@andersjanmyr</h3></div>
-</div><div class="slide" data-transition="none"><div class="content center" ref="slides/01_intro/2">
-<h1>LiveWire</h1>
-
-<p><img src="./file/slides/livewire.gif" alt=""/></p></div>
-</div><div class="slide" data-transition="none"><div class="content center" ref="slides/01_intro/3">
-<p><img src="./file/slides/static_typing_is_the_root_of_all_evil.png" alt=""/></p></div>
-</div><div class="slide" data-transition="none"><div class="content center" ref="slides/01_intro/4">
-<p><img src="./file/slides/dynamic_for_the_win.png" alt=""/></p></div>
-</div><div class="slide" data-transition="none"><div class="content bullets small" ref="slides/01_intro/5">
+</div><div class="slide" data-transition="none"><div class="content bullets small" ref="slides/01_intro/2">
 <h1>Node?</h1>
 
 <ul>
+<li>Server Side Javascript</li>
 <li>Created by Ryan Dahl</li>
 <li>A set of libraries on top of Google V8</li>
 <li>Focused on doing networking right</li>
 </ul>
 </div>
-</div><div class="slide" data-transition="none"><div class="content" ref="slides/01_intro/6">
+</div><div class="slide" data-transition="none"><div class="content" ref="slides/01_intro/3">
 <h1>Evented?</h1>
-
-<h2>Asynchronous</h2>
 
 <h2>Event Driven</h2>
 
+<h2>Asynchronous</h2>
+
 <h2>Callbacks</h2></div>
-</div><div class="slide" data-transition="none"><div class="content code" ref="slides/01_intro/7">
+</div><div class="slide" data-transition="none"><div class="content code" ref="slides/01_intro/4">
 <h1>The Event Loop</h1>
 
 <pre class="sh_javascript"><code>while(somethingIsGoingOn()) {
@@ -120,20 +113,20 @@
     for (channel in readyChannels) 
         performIO(channel);
 }</code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content code" ref="slides/01_intro/8">
+</div><div class="slide" data-transition="none"><div class="content code" ref="slides/01_intro/5">
 <h1>The Real Event Loop</h1>
 
 <pre class="sh_javascript"><code>// The Real Event Loop is implicit.
 // The code is automatically inside the loop.</code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content center" ref="slides/01_intro/9">
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/01_intro/6">
 <h1>Why Node?</h1>
 
 <p><img src="./file/slides/why.jpg" alt="Why"/></p></div>
-</div><div class="slide" data-transition="none"><div class="content center" ref="slides/01_intro/10">
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/01_intro/7">
 <h1>Cool</h1>
 
 <p><img src="./file/slides/Cool.jpg" alt="Cool"/></p></div>
-</div><div class="slide" data-transition="none"><div class="content center" ref="slides/01_intro/11">
+</div><div class="slide" data-transition="none"><div class="content center" ref="slides/01_intro/8">
 <h1>Javascript</h1>
 
 <p class="notes">Bertrand Russell once gave a public lecture on astronomy. He
@@ -286,7 +279,7 @@ function doSomething(response, callback) {
 </div><div class="slide" data-transition="none"><div class="content execute smaller" ref="slides/15_idioms/7">
 <h1>Call doAll</h1>
 
-<pre class="sh_javascript"><code>// What does this code do?
+<pre class="sh_javascript"><code>// How long does this code take?
 var r = [];
 doAll([
   function(callback) { 
@@ -333,7 +326,7 @@ doAll([
 </div><div class="slide" data-transition="none"><div class="content execute smaller" ref="slides/15_idioms/10">
 <h1>Call doInSequence</h1>
 
-<pre class="sh_javascript"><code>// What does this code do?;
+<pre class="sh_javascript"><code>// How long does this code take?
 var r = [];
 doInSequence([
   function(callback) { 
@@ -403,7 +396,7 @@ Tapir = function() {
   }
 
 };
-// Set EventEmitter as Tapirs prototype
+// Set EventEmitter as Tapir's prototype
 util.inherits(Tapir, events.EventEmitter);</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content small" ref="slides/20_modules/5">
 <h1>Modules, writing</h1>
@@ -588,7 +581,7 @@ dnode.connect(5050, function (remote) {
     });
 });</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content smaller bullets" ref="slides/20_modules/20">
-<h1>Tower.js</h1>
+<h1>Tower.js (Rails for Node)</h1>
 
 <ul>
 <li>MongoDB (database)</li>
@@ -597,6 +590,18 @@ dnode.connect(5050, function (remote) {
 <li>Stylus</li>
 <li>Jasmine (tests)</li>
 <li>jQuery</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="slides/20_modules/21">
+<h1><a href="https://trello.com/board/demo-board/4f6851dc9290fac27611d0ae">Trello</a></h1>
+
+<ul>
+<li>Node.js</li>
+<li>Express</li>
+<li><p>MongoDB</p></li>
+<li><p>jQuery</p></li>
+<li>Backbone</li>
+<li>Mustache</li>
 </ul>
 </div>
 </div><div class="slide" data-transition="none"><div class="content" ref="slides/25_test/1">
