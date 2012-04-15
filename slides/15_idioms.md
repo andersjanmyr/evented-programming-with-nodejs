@@ -11,9 +11,9 @@
     // What's wrong with this code?
     function doSomething(response, callback) {
       doSomeAsyncCall('abc', 123, function(err, result) {
-        if (err) {
+        if (err)
           callback(err);
-        }
+
         callback(null, result);
       });
     }
@@ -25,9 +25,9 @@
     // Add return statements
     function doSomething(response, callback) {
       doSomeAsyncCall('abc', 123, function(err, result) {
-        if (err) {
+        if (err)
           return callback(err);
-        }
+
         return callback(null, result);
       });
     }
