@@ -19,58 +19,79 @@
 !SLIDE bullets small
 # Test Frameworks
 
+* mocha
 * nodeunit
-* jasmine
 * vows
+* jasmine
 * qunit
 * +50 others
 
 !SLIDE smaller
-# NodeUnit
+# Mocha
 
     @@@javascript
-    // ./test/test-doubled.js
-    var doubled = require('../lib/doubled');
+    var should = require('should');
+    var sleepsort = require('../lib/main');
 
-    exports['calculate'] = function (test) {
-        test.equal(doubled.calculate(2), 4);
-        test.done();
-    };
-    
+    describe('sleepsort', function() {
+
+      describe('with no arguments', function() {
+        it('returns an empty array', function() {
+          var result = sleepsort();
+          result.should.eql([]);
+        });
+      });
+
+    });
+
 
 !SLIDE commandline
-# NodeUnit (running)
+# Mocha (running)
 
-    $ nodeunit test
+    $ mocha -R spec test/*
 
-    test-doubled
-    ✔ calculate
+      sleepsort
+        with an empty array argument
+          ✓ calls the callback with an empty array
+        with a single element array
+          ✓ calls the callback with a single element array
+        with an unsorted two element array
+          ✓ calls the callback with a sorted two element array
 
-    OK: 1 assertions (3ms)
+      ✔ 3 tests complete (9ms)
 
 !SLIDE smaller
-# NodeUnit (async)
+# mocha (async)
 
     @@@javascript
-    exports['read a number'] = function (test) {
-        test.expect(1); // Make sure the assertion is run
+    describe('with an unsorted two element array', function() {
 
-        // Mock stdin and exit
-        var ev = new events.EventEmitter();
-        process.openStdin = function () { return ev; };
-        process.exit = test.done;
-        
-        // Setup the expectation
-        console.log = function (str) {
-            test.equal(str, 'Doubled: 24');
-        };
-       
-        // Perform the action
-        doubled.read();
-        // Simulate 12 entered on stdin
-        ev.emit('data', '12');
-    };
+      it('is called with a sorted array', function(done) {
+        var result = sleepsort([2, 1], function(result) {
+          result.should.eql([1, 2]);
+          done();
+        });
+      });
 
+    });
 
+!SLIDE smaller
+# sleepsort
+
+    @@@javascript
+    function sleepsort(array, callback) {
+      var result = [];
+
+      function appendResult(n) {
+          return function() {
+              result.push(n);
+              if (array.length === result.length)
+                  callback(result);
+          };
+      }
+
+      for(var i = 0; i < array.length; i++)
+          setTimeout(appendResult(array[i]), array[i]);
+    }
 
 

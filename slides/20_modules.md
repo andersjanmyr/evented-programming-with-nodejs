@@ -90,7 +90,7 @@
 * http://search.npmjs.org
 * ~1800 modules (May, 2011)
 * ~3700 modules (Sept, 2011)
-* ~8000 modules (March, 2012)
+* ~9000 modules (April, 2012)
 
 !SLIDE
 # Notable External Modules
