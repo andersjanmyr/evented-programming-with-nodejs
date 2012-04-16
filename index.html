@@ -117,7 +117,8 @@
 <h1>The Real Event Loop</h1>
 
 <pre class="sh_javascript"><code>// The Real Event Loop is implicit.
-// The code is automatically inside the loop.</code></pre></div>
+// All code YOU write is
+// AUTOMATICALLY inside the loop.</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content center" ref="slides/01_intro/6">
 <h1>Why Node?</h1>
 
@@ -214,14 +215,14 @@ lady. "But it's turtles all the way down!"</p>
 <h1>Get Started</h1>
 
 <pre><code><code class="command">$ brew install node</code>
-<code class="result">==&gt; Downloading http://nodejs.org/dist/node-v0.4.7.tar.gz
+<code class="result">==&gt; Downloading http://nodejs.org/dist/node-v0.6.15.tar.gz
 </code><code class="command"># ####################################################################### 100.0%</code>
-<code class="result">==&gt; ./configure --prefix=/usr/local/Cellar/node/0.4.7
+<code class="result">==&gt; ./configure --prefix=/usr/local/Cellar/node/0.6.15
 ==&gt; make install
 ==&gt; Caveats
 Please add /usr/local/lib/node to your NODE_PATH environment variable to have node libraries picked up.
 ==&gt; Summary
-/usr/local/Cellar/node/0.4.7: 72 files, 7.5M, built in 1.2 minutes
+/usr/local/Cellar/node/0.6.15: 72 files, 7.5M, built in 1.2 minutes
 </code></code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content" ref="slides/10_start/2">
 <h1>Demo</h1>
@@ -237,9 +238,9 @@ Please add /usr/local/lib/node to your NODE_PATH environment variable to have no
 <pre class="sh_javascript"><code>// What's wrong with this code?
 function doSomething(response, callback) {
   doSomeAsyncCall('abc', 123, function(err, result) {
-    if (err) {
+    if (err)
       callback(err);
-    }
+
     callback(null, result);
   });
 }</code></pre></div>
@@ -249,9 +250,9 @@ function doSomething(response, callback) {
 <pre class="sh_javascript"><code>// Add return statements
 function doSomething(response, callback) {
   doSomeAsyncCall('abc', 123, function(err, result) {
-    if (err) {
+    if (err)
       return callback(err);
-    }
+
     return callback(null, result);
   });
 }</code></pre></div>
@@ -339,11 +340,11 @@ doInSequence([
 </div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/15_idioms/11">
 <h1>async</h1>
 
-<pre class="sh_javascript"><code>async.map(['file1','file2','file3'], fs.stat, function(err, results){
+<pre class="sh_javascript"><code>async.map(['file1','file2'], fs.stat, function(err, results){
     // results is now an array of stats for each file
 });
 
-async.filter(['file1','file2','file3'], path.exists, function(results){
+async.filter(['file1','file2'], path.exists, function(results){
     // results now equals an array of the existing files
 });
 
@@ -441,7 +442,7 @@ express@2.3.2 /usr/local/lib/node_modules/express
 <li>http://search.npmjs.org</li>
 <li>~1800 modules (May, 2011)</li>
 <li>~3700 modules (Sept, 2011)</li>
-<li>~8000 modules (March, 2012)</li>
+<li>~9000 modules (April, 2012)</li>
 </ul>
 </div>
 </div><div class="slide" data-transition="none"><div class="content" ref="slides/20_modules/9">
@@ -624,54 +625,75 @@ assert.throws(block, [error], [message])</code></pre></div>
 <h1>Test Frameworks</h1>
 
 <ul>
+<li>mocha</li>
 <li>nodeunit</li>
-<li>jasmine</li>
 <li>vows</li>
+<li>jasmine</li>
 <li>qunit</li>
 <li>+50 others</li>
 </ul>
 </div>
 </div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/25_test/4">
-<h1>NodeUnit</h1>
+<h1>Mocha</h1>
 
-<pre class="sh_javascript"><code>// ./test/test-doubled.js
-var doubled = require('../lib/doubled');
+<pre class="sh_javascript"><code>var should = require('should');
+var sleepsort = require('../lib/main');
 
-exports['calculate'] = function (test) {
-    test.equal(doubled.calculate(2), 4);
-    test.done();
-};</code></pre></div>
+describe('sleepsort', function() {
+
+  describe('with no arguments', function() {
+    it('returns an empty array', function() {
+      var result = sleepsort();
+      result.should.eql([]);
+    });
+  });
+
+});</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content commandline" ref="slides/25_test/5">
-<h1>NodeUnit (running)</h1>
+<h1>Mocha (running)</h1>
 
-<pre><code><code class="command">$ nodeunit test</code>
+<pre><code><code class="command">$ mocha -R spec test/*</code>
 <code class="result">
-test-doubled
-&#x2714; calculate
+  sleepsort
+    with an empty array argument
+      &#x2713; calls the callback with an empty array
+    with a single element array
+      &#x2713; calls the callback with a single element array
+    with an unsorted two element array
+      &#x2713; calls the callback with a sorted two element array
 
-OK: 1 assertions (3ms)
+  &#x2714; 3 tests complete (9ms)
 </code></code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/25_test/6">
-<h1>NodeUnit (async)</h1>
+<h1>mocha (async)</h1>
 
-<pre class="sh_javascript"><code>exports['read a number'] = function (test) {
-    test.expect(1); // Make sure the assertion is run
+<pre class="sh_javascript"><code>describe('with an unsorted two element array', function() {
 
-    // Mock stdin and exit
-    var ev = new events.EventEmitter();
-    process.openStdin = function () { return ev; };
-    process.exit = test.done;
+  it('is called with a sorted array', function(done) {
+    var result = sleepsort([2, 1], function(result) {
+      result.should.eql([1, 2]);
+      done();
+    });
+  });
 
-    // Setup the expectation
-    console.log = function (str) {
-        test.equal(str, 'Doubled: 24');
-    };
+});</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/25_test/7">
+<h1>sleepsort</h1>
 
-    // Perform the action
-    doubled.read();
-    // Simulate 12 entered on stdin
-    ev.emit('data', '12');
-};</code></pre></div>
+<pre class="sh_javascript"><code>function sleepsort(array, callback) {
+  var result = [];
+
+  function appendResult(n) {
+      return function() {
+          result.push(n);
+          if (array.length === result.length)
+              callback(result);
+      };
+  }
+
+  for(var i = 0; i &lt; array.length; i++)
+      setTimeout(appendResult(array[i]), array[i]);
+}</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content center" ref="slides/29_tools/1">
 <h1>Tools</h1>
 
