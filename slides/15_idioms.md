@@ -135,11 +135,11 @@
 # async
 
     @@@javascript
-    async.map(['file1','file2','file3'], fs.stat, function(err, results){
+    async.map(['file1','file2'], fs.stat, function(err, results){
         // results is now an array of stats for each file
     });
 
-    async.filter(['file1','file2','file3'], path.exists, function(results){
+    async.filter(['file1','file2'], path.exists, function(results){
         // results now equals an array of the existing files
     });
 
