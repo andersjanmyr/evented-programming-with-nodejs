@@ -104,12 +104,13 @@
     var app = express.createServer();
     app.listen(4000);
 
-    app.get('/', function(req, req) {
-      res.redirect('/index.html');
+    app.post('/tapirs', function(req, req) {
+      Tapir.create(req.params);
+      res.redirect('/tapirs');
     });
 
-    app.put('/animals/:id', function(req, res) {
-      res.send(Animal.update(req.params.id));
+    app.put('/tapirs/:id', function(req, res) {
+      res.send(Tapir.update(req.params.id));
     });
 
 !SLIDE smaller
@@ -130,7 +131,7 @@
 ## HTTP Client
     @@@javascript
     var request = require('request');
-    request('http://anders.janmyr.com',
+    request.put('http://anders.janmyr.com',
             function(err, resp, body) {
       if (!err && resp.statusCode === 200)
           console.log(body);
