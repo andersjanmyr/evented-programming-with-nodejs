@@ -56,7 +56,7 @@
         with a single element array
           ✓ calls the callback with a single element array
         with an unsorted two element array
-          ✓ calls the callback with a sorted two element array
+          ✓ calls the callback with a sorted array
 
       ✔ 3 tests complete (9ms)
 
@@ -64,15 +64,17 @@
 # mocha (async)
 
     @@@javascript
-    describe('with an unsorted two element array', function() {
+    describe('sleepsort', function() {
+      describe('with an unsorted two element array', function() {
 
-      it('is called with a sorted array', function(done) {
-        var result = sleepsort([2, 1], function(result) {
-          result.should.eql([1, 2]);
-          done();
+        it('is called with a sorted array', function(done) {
+          var result = sleepsort([2, 1], function(result) {
+            result.should.eql([1, 2]);
+            done();
+          });
         });
-      });
 
+      });
     });
 
 !SLIDE smaller
@@ -90,7 +92,7 @@
           };
       }
 
-      for(var i = 0; i < array.length; i++)
+      for (var i = 0; i < array.length; i++)
           setTimeout(appendResult(array[i]), array[i]);
     }
 

@@ -10,17 +10,20 @@
 !SLIDE code
 # Threaded code
 
-	@@@ javascript
-	var result = db.query("select * from T");
-	// Use result
+    @@@ javascript
+    var result = db.query("select * from T");
+    // Waiting...
+    // Use result
 
 !SLIDE code small
 # Evented Code
 
-	@@@ javascript
-	db.query("select * from T", function (result) {
-		// Use result
-	});
+    @@@ javascript
+    db.query("select * from T", function (result) {
+      // Use result
+    });
+
+    // Execution continues
 
 !SLIDE bullets
 

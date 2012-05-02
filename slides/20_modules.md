@@ -62,15 +62,18 @@
 #  Modules, how?
 
     @@@javascript
-    var tapir = require('tapir');
+    function require(name) {
 
-    // This happens inside require
-    var module = { exports: {}};
-    (function(module, exports){
-        // This is where your code goes
-        ...
-    })(module, module.exports);
+      var source = findSource(name);
 
+      var module = { exports: {}};
+
+      (function(module, exports){
+          eval(source);
+      })(module, module.exports);
+
+      return module;
+    }
 
 
 !SLIDE commandline
