@@ -155,13 +155,16 @@ lady. "But it's turtles all the way down!"</p>
 <h1>Threaded code</h1>
 
 <pre class="sh_javascript"><code>var result = db.query("select * from T");
+// Waiting...
 // Use result</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content code small" ref="slides/02_evented/4">
 <h1>Evented Code</h1>
 
 <pre class="sh_javascript"><code>db.query("select * from T", function (result) {
-    // Use result
-});</code></pre></div>
+  // Use result
+});
+
+// Execution continues</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content bullets" ref="slides/02_evented/5">
 <h1>Threads</h1>
 
@@ -416,14 +419,18 @@ exports.eat = eat;</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content small" ref="slides/20_modules/6">
 <h1>Modules, how?</h1>
 
-<pre class="sh_javascript"><code>var tapir = require('tapir');
+<pre class="sh_javascript"><code>function require(name) {
 
-// This happens inside require
-var module = { exports: {}};
-(function(module, exports){
-    // This is where your code goes
-    ...
-})(module, module.exports);</code></pre></div>
+  var source = findSource(name);
+
+  var module = { exports: {}};
+
+  (function(module, exports){
+      eval(source);
+  })(module, module.exports);
+
+  return module;
+}</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content commandline" ref="slides/20_modules/7">
 <h1>npm, Node Package Manager</h1>
 
@@ -455,12 +462,13 @@ express@2.3.2 /usr/local/lib/node_modules/express
 <pre class="sh_javascript"><code>var app = express.createServer();
 app.listen(4000);
 
-app.get('/', function(req, req) {
-  res.redirect('/index.html');
+app.post('/tapirs', function(req, req) {
+  Tapir.create(req.params);
+  res.redirect('/tapirs');
 });
 
-app.put('/animals/:id', function(req, res) {
-  res.send(Animal.update(req.params.id));
+app.put('/tapirs/:id', function(req, res) {
+  res.send(Tapir.update(req.params.id));
 });</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/20_modules/11">
 <h1>Connect</h1>
@@ -480,7 +488,7 @@ app.put('/animals/:id', function(req, res) {
 <h2>HTTP Client</h2>
 
 <pre class="sh_javascript"><code>var request = require('request');
-request('http://anders.janmyr.com',
+request.put('http://anders.janmyr.com',
         function(err, resp, body) {
   if (!err &amp;&amp; resp.statusCode === 200)
       console.log(body);
@@ -660,22 +668,24 @@ describe('sleepsort', function() {
     with a single element array
       &#x2713; calls the callback with a single element array
     with an unsorted two element array
-      &#x2713; calls the callback with a sorted two element array
+      &#x2713; calls the callback with a sorted array
 
   &#x2714; 3 tests complete (9ms)
 </code></code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/25_test/6">
 <h1>mocha (async)</h1>
 
-<pre class="sh_javascript"><code>describe('with an unsorted two element array', function() {
+<pre class="sh_javascript"><code>describe('sleepsort', function() {
+  describe('with an unsorted two element array', function() {
 
-  it('is called with a sorted array', function(done) {
-    var result = sleepsort([2, 1], function(result) {
-      result.should.eql([1, 2]);
-      done();
+    it('is called with a sorted array', function(done) {
+      var result = sleepsort([2, 1], function(result) {
+        result.should.eql([1, 2]);
+        done();
+      });
     });
-  });
 
+  });
 });</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content smaller" ref="slides/25_test/7">
 <h1>sleepsort</h1>
@@ -691,7 +701,7 @@ describe('sleepsort', function() {
       };
   }
 
-  for(var i = 0; i &lt; array.length; i++)
+  for (var i = 0; i &lt; array.length; i++)
       setTimeout(appendResult(array[i]), array[i]);
 }</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content center" ref="slides/29_tools/1">
