@@ -12,7 +12,10 @@ asynchronous programming.
 
 Get ready for Javascript on the server!
 
-
+Attendees will walk a way with:
+* Basic knowledge of Node.js
+* When and why to use it.
+* An urge to start coding Javascript.
 
 ## Anders Janmyr
 
