@@ -1,16 +1,16 @@
 "use strict";
 
 var log = console.log;
-
-log('Hello Scandev');
+log('Hello Devcon');
 
 setTimeout(function() {
-    log('After a while');
+    log('Hello Again');
 }, 4000);
 
 setInterval(function() {
     log('Again');
-}, 10000);
+}, 6000);
+
 
 var net = require('net');
 var server = net.createServer(function(socket) {
@@ -19,34 +19,35 @@ var server = net.createServer(function(socket) {
         socket.write(data);
     });
 });
+
 server.listen(4000);
 
 setInterval(function() {
-    var client = net.connect(4000);
+    var client = net.connect({port: 4000});
     client.on('connect', function() {
-        client.write('Tapir');
-        log('client wrote Tapir');
+        log('Client connected');
+        client.end('Hello from client');
     });
-}, 5000);
+}, 1000);
 
 var express = require('express');
-var app = express.createServer();
-
+var app = express();
 app.listen(4001);
 
 app.get('/', function(req, resp) {
-    console.log('/ accessed');
-    resp.end('response from /\n');
+    log('Root called via http');
+    resp.end('Hello from express');
 });
 
 app.get('/tapir/:name', function(req, resp) {
-    console.log('Tapir called with param ' + req.params.name);
-    resp.end('The name of the tapir is: ' + req.params.name);
+    log('Tapir called with name ' + req.params.name);
+    resp.end('A tapir named ' + req.params.name);
 });
 
 var request = require('request');
 
 setInterval(function() {
-    request('http://localhost:4001/tapir/Scandev');
+    log('Making client HTTP request');
+    request('http://localhost:4001/tapir/Arne');
 }, 1000);
 
