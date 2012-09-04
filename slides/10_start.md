@@ -16,7 +16,4 @@
 
 # Demo
 
-## [http://whatismyip.com](http://whatismyip.com)
-
-
 

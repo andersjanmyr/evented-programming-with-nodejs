@@ -245,15 +245,6 @@
         });
     });
 
-!SLIDE smaller bullets
-# Tower.js (Rails for Node)
-
-* MongoDB (database)
-* Redis (background jobs)
-* CoffeeScript
-* Stylus
-* Jasmine (tests)
-* jQuery
 
 !SLIDE bullets
 # [Trello](https://trello.com/board/demo-board/4f6851dc9290fac27611d0ae)

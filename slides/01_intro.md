@@ -44,10 +44,6 @@
 ![Why](why.jpg)
 
 !SLIDE center
-# Cool
-![Cool](Cool.jpg)
-
-!SLIDE center
 
 # Javascript
 
@@ -65,14 +61,6 @@ lady. "But it's turtles all the way down!"
 
 ### *Atwood's Law*: any application that can be written
 ### in JavaScript, will eventually be written in JavaScript.
-
-
-
-
-
-
-
-
 
 
 

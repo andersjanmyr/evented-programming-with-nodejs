@@ -62,9 +62,6 @@ Source: [A little holiday present: 10,000 reqs/sec with Nginx!](http://blog.webf
 # Single-threaded event loop
 # requires non-blocking IO
 
-!SLIDE
-
-# Most libraries aren't
 
 !SLIDE bullets
 
