@@ -65,7 +65,7 @@
 
     @@@javascript
     describe('sleepsort', function() {
-      describe('with an unsorted two element array', function() {
+      describe('with unsorted two element array', function() {
 
         it('is called with a sorted array', function(done) {
           var result = sleepsort([2, 1], function(result) {
