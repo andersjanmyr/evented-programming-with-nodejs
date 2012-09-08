@@ -135,12 +135,17 @@
           console.log(body);
     })
 
+    // Streaming
+    request.get('http://google.com/img.png').pipe(
+        request.put('http://mysite.com/img.png'))
+
+
 !SLIDE bullets
 # Templating Engines
-* Jade    - Haml with JS flavor
-* Mu      - Mustache for Node
-* ejs     - Embedded Javascript
-* eco     - Embedded Coffeescript
+* Jade     - Haml with JS flavor
+* Mustache - Mustache for Node
+* ejs      - Embedded Javascript
+* eco      - Embedded Coffeescript
 * +40 others
 
 !SLIDE small
