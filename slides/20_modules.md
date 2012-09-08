@@ -87,13 +87,8 @@
     /usr/local/bin/express -> /usr/local/lib/node_modules/express/bin/express
     express@2.3.2 /usr/local/lib/node_modules/express
 
-!SLIDE bullets
-# Node Module Repository
-
-* http://search.npmjs.org
-* ~1800 modules (May, 2011)
-* ~3700 modules (Sept, 2011)
-* ~9000 modules (April, 2012)
+!SLIDE fullscreen
+![NPM Modules](npm-modules.png)
 
 !SLIDE
 # Notable External Modules
@@ -104,7 +99,7 @@
 ## Sinatra for Node
 
     @@@javascript
-    var app = express.createServer();
+    var app = express();
     app.listen(4000);
 
     app.post('/tapirs', function(req, req) {

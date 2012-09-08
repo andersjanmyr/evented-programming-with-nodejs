@@ -1,16 +1,12 @@
 "use strict";
 
 var log = console.log;
+
 log('Hello Devcon');
 
-setTimeout(function() {
-    log('Hello Again');
-}, 4000);
-
 setInterval(function() {
-    log('Again');
-}, 6000);
-
+    log('again');
+}, 30000);
 
 var net = require('net');
 var server = net.createServer(function(socket) {
@@ -19,35 +15,33 @@ var server = net.createServer(function(socket) {
         socket.write(data);
     });
 });
-
 server.listen(4000);
 
 setInterval(function() {
-    var client = net.connect({port: 4000});
+    var client = net.connect(4000);
     client.on('connect', function() {
-        log('Client connected');
-        client.end('Hello from client');
+        client.end('From tcp client');
+        log('Tcp client connecting');
     });
-}, 1000);
+}, 9000);
 
 var express = require('express');
 var app = express();
+
 app.listen(4001);
 
 app.get('/', function(req, resp) {
-    log('Root called via http');
-    resp.end('Hello from express');
+    log('/ requested');
+    resp.end('ROOT');
 });
 
 app.get('/tapir/:name', function(req, resp) {
-    log('Tapir called with name ' + req.params.name);
-    resp.end('A tapir named ' + req.params.name);
+    log('Tapir named ' + req.params.name);
+    resp.end("I'm the tapir named " + req.params.name);
 });
 
 var request = require('request');
-
 setInterval(function() {
-    log('Making client HTTP request');
-    request('http://localhost:4001/tapir/Arne');
+    request('http://localhost:4001/tapir/Thomas');
 }, 1000);
 

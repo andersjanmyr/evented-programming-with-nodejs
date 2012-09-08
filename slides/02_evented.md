@@ -72,3 +72,25 @@ Source: [A little holiday present: 10,000 reqs/sec with Nginx!](http://blog.webf
 * EventMachine (Ruby, 2003)
 * Goliath (Ruby, 2011)
 * Async Framework (.Net, 2011)
+
+!SLIDE code
+# The Event Loop
+
+    @@@javascript
+    while(somethingIsGoingOn()) {
+        readyChannels = select(ioChannels);
+        for (channel in readyChannels) 
+            performIO(channel);
+    }
+
+!SLIDE code
+# The Node Event Loop
+
+    @@@javascript
+    // The Node Event Loop is implicit.
+    // All code YOU write is
+    // automatically inside the loop.
+    // WHILE SOMETHING IS GOING ON
+
+
+
