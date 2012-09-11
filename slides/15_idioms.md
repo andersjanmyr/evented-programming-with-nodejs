@@ -49,10 +49,10 @@
 # Parallel Execution
     @@@javascript
     function doAll(collection, callback) {
-      var left = collection.length;
+      var remaining = collection.length;
       collection.forEach(function(fun) {
         fun(function() {
-          if (--left == 0) callback();
+          if (--remaining == 0) callback();
         });
       });
     };
@@ -87,7 +87,7 @@
           var fun = queue.splice(0, 1)[0];
           fun(function(err) {
             if (err) throw err; 
-            iterate();
+            iterate();  // May build up a large stack
           });
         }
         iterate();
@@ -108,7 +108,7 @@
           var fun = queue.splice(0, 1)[0];
           fun(function(err) {
             if (err) throw err; 
-            process.nextTick(iterate);
+            process.nextTick(iterate); // No stack
           });
         }
         iterate();
