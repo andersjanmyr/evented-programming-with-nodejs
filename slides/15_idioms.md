@@ -35,7 +35,7 @@
 !SLIDE smaller
 # Exceptions
     @@@javascript
-    function insertIntoTable(row, callback(err, data) {
+    function insertIntoTable(row, function(err, data) {
       if (err) return callback(err);
       ...
 

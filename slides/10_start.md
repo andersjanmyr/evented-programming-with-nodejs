@@ -1,3 +1,7 @@
+!SLIDE
+
+# Simplicity
+
 !SLIDE commandline
 
 # Get Started
