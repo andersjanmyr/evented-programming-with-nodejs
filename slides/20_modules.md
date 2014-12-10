@@ -9,7 +9,7 @@
 * fs (readFile, readdir, rename, ...)
 * events (EventEmitter)
 
-!SLIDE smaller code
+!SLIDE small code
 # EventEmitter, usage
 
     @@@javascript
@@ -23,7 +23,7 @@
       console.log('What? ' + error);
     });
 
-!SLIDE smaller code
+!SLIDE small code
 # EventEmitter
 
     @@@javascript
@@ -97,7 +97,7 @@
 # Notable External Modules
 
 
-!SLIDE smaller
+!SLIDE small
 # Express
 ## Sinatra for Node
 
@@ -114,7 +114,7 @@
       res.send(Tapir.update(req.params.id));
     });
 
-!SLIDE smaller
+!SLIDE small
 # Connect
 ## Rack for Node (middleware framework)
 
@@ -127,7 +127,7 @@
         , everyauth.middleware()
       ).listen(3000);
     
-!SLIDE smaller
+!SLIDE small
 # Request
 ## HTTP Client
     @@@javascript
@@ -172,7 +172,7 @@
             p Get on it!
   
 
-!SLIDE smaller
+!SLIDE small
 # Socket.IO
 ## Websockets and more
 
@@ -191,7 +191,7 @@
       client.on('disconnect', function(){ … })
     });
 
-!SLIDE smaller
+!SLIDE small
 # DB (MySql, Postgres, Oracle)
 
     @@@javascript
@@ -206,7 +206,7 @@
       }
     );
 
-!SLIDE smaller
+!SLIDE small
 # NOSQL (MongoDB, CouchDB, Redis, Cassandra, Memcached, Hadoop, ...)
 
     @@@javascript
@@ -222,7 +222,7 @@
       });
     });
 
-!SLIDE smaller
+!SLIDE small
 # DNode Server
 
     @@@javascript
@@ -235,7 +235,7 @@
     });
     server.listen(5050);
     
-!SLIDE smaller
+!SLIDE small
 # DNode Client
 
     @@@javascript
