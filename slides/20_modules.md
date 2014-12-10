@@ -87,7 +87,10 @@
     /usr/local/bin/express -> /usr/local/lib/node_modules/express/bin/express
     express@2.3.2 /usr/local/lib/node_modules/express
 
-!SLIDE fullscreen
+!SLIDE center
+
+# Node Modules
+
 ![NPM Modules](npm-modules.png)
 
 !SLIDE
